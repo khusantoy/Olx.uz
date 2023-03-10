@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/salom', function () {
-    return view('welcome');
+    return view('welcomevdzbdf');
 });
