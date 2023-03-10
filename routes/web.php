@@ -16,13 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/salomsalom', function () {
+Route::get('/vfdsdfsvfd', function () {
     return view('welcomevdzbdf');
-
 });
-
-
-// 1 git add .
-// 2. git commit
-// 3
