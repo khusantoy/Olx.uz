@@ -35,5 +35,5 @@ Route::get('/admin', function () {
 })->name('admin');
 
 Route::get('/test', function () {
-    return 'test';
+    return '2';
 });
