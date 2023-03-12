@@ -1,0 +1,25 @@
+.price_range {
+	background-size: 150px;
+}
+.primary-sidebar {
+	.sidebar-widget {
+		position: relative;
+		padding: 20px;
+		border: 1px solid $border-color;
+		border-radius: 7px;
+	}
+}
+
+.sidebar-widget {
+    .widget-header {
+        border-bottom: 1px solid $border-color;
+        h5 {
+            margin-bottom: 0;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+    }
+	.banner-img {
+		float: none;
+	}
+}

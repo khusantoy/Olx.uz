@@ -1,0 +1,173 @@
+.nav-tabs {
+    border: 0;
+    margin-bottom: 4px;
+    .nav-link {
+        background-color: rgb(238, 238, 238);
+        font-size: 15px;
+        margin: 0 10px;
+        margin-left: 10px;
+        color: #444;
+        border-radius: 4px;
+        padding: 15px 24px;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+        border: 0;
+        border-top-color: currentcolor;
+        border-right-color: currentcolor;
+        border-bottom-color: currentcolor;
+        border-left-color: currentcolor;
+        font-weight: 600;
+        line-height: 1;
+        &.active {
+           color: $color-brand;
+           background-color: #fde1bd;
+		   &:before {
+				@include position($__absolute, null,null,0,0);
+				@include position-alignment(horizontal);
+				content : "";
+				height  : 1px;
+				width   : 33px;
+				border-bottom:1px solid $color-brand;
+			}
+        }
+        &:hover {
+            color: $color-brand;
+            background-color: red;
+            transition: 0.2s;
+         }
+
+        &:first-child {margin-left: 0 !important;padding-left: 0 !important;}
+    }
+    &.links {
+        .nav-link {           
+            padding: 0 10px 9px;
+            background: none;
+            font-size: 16px;
+            color: $color-heading;
+			position: $__relative;
+			margin-right: 40px;
+            &:hover, &.active {
+                color: $color-brand;
+            }
+
+        }
+       
+    }
+    &.no-border {
+        border: none;
+    }
+    &.right {
+        .nav-item:last-child {
+            .nav-link {
+                margin-right: 0;
+            }
+        }
+    }
+}
+.modal-nav {
+    li {
+        a {
+            font-weight: 400 !important;
+        }
+    }
+}
+.nav {
+    &.right {
+        justify-content: end;
+    }
+}
+.dashboard-menu { 
+    ul {
+        padding: 0;
+        margin: 0;
+        li {
+           position: relative;
+           border-radius: 10px;
+           background-color: $background-6;
+           border: 1px solid $border-color;
+           border-radius: 7px;
+            a {
+                font-size: 16px;
+                color: $color-black;
+                padding: 15px 20px;
+                font-weight: 500;
+                i {
+                    color: $color-brand; 
+                }
+                &:hover {
+                   color: $color-brand; 
+                }
+                &.active {
+                    color: $color-brand;
+                    background-color: $background-6;
+                    border-radius: 10px;
+                }
+            }
+            &:not(:last-child) {
+                margin-bottom: 14px;
+            }
+        }
+    }
+}
+
+.tab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .view-more {
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        border-bottom: 2px solid #cce7d0;
+        margin-bottom: 20px;
+        i {
+            margin-left: 5px;
+            margin-top: 5px;
+            transition: 0.5s;
+        }
+        &:hover {
+            i {
+                transform: translateX(5px);
+                transition: 0.5s;
+            }
+        }
+    }
+}
+.dashboard-menu {
+    .dashboard-sub-link {
+        li {
+            border: 0;
+            margin-bottom: 20px;
+            a {
+                display: block;
+                font-size: 15px;
+                padding: 0 25px;
+                font-weight: 400;
+                color: $color-grey-2;
+                position: relative;
+                margin-left: 10px;
+                &.active {
+                    color: $color-black;
+                }
+                &:hover { 
+                    color: $color-black;
+                }
+                &::after {
+                    content: '';
+                    width: 6px;
+                    height: 6px;
+                    display: inline-block;
+                    background: $color-grey-2;
+                    border-radius: 0;
+                    left: 10px;
+                    position: absolute;
+                    top: 8px;
+                }
+            }
+        }
+    }
+}
+
+
+
+

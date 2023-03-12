@@ -1,0 +1,91 @@
+//1.Fonts
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+
+$font-heading: 'Ubuntu', sans-serif;
+$font-text: 'Ubuntu', sans-serif;
+
+$font-xxs: 12px;
+$font-xs: 13px;
+$font-sm: 14px;
+$font-md: 16px;
+$font-lg: 17px;
+$font-xl: 19px;
+$font-xxl: 58px;
+
+//2.Colors
+$color-brand: #EB4648;
+$color-brand-dark: #29A56C;
+$color-brand-2: #f43f41;
+$color-primary: #5a97fa;
+$color-secondary: #3e5379;
+$color-warning: #ff9900;
+$color-danger: #FD6E6E;
+$color-success: #1DB600;
+$color-info: #2cc1d8;
+$color-text: #7E7E7E;
+$color-heading: #253D4E;
+$color-grey-1: $color-heading;
+$color-grey-2: #6B7280;
+$color-gary-3: #F8F8F8;
+$color-grey-4: #EAEAEA;
+$color-grey-5: #182233;
+$color-grey-9: #f4f5f9;
+$color-grey-10: #4A4A4A;
+$color-muted: #999999;
+$color-body: #7E7E7E;
+$color-black: #000000;
+$color-white: #FFF;
+$color-yellow: #FFC700;
+
+$color-1: #fddde4;
+$color-2: #cdebbc;
+$color-3: #d1e8f2;
+$color-4: #cdd4f8;
+$color-5: #f6dbf6;
+$color-6: #fff2e5;
+$color-7: #d77f7a;
+$color-8: #63a2c1;
+$color-9: #F2FCE4;
+$color-10: #FFFCEB;
+$color-11: #ECFFEC;
+$color-12: #FEEFEA;
+$color-13: #FFF3EB;
+$color-14: #FFF3FF;
+$color-15: #F2FCE4;
+$color-16: #F52D16;
+$color-17: #E5E5E5;
+$color-18: #1A47BB;
+
+$color-hot: #f74b81;
+$color-new: #55bb90;
+$color-sale: #67bcee;
+$color-best: #f59758;
+
+//3.Boxshadows
+$box-shadown-1: 20px 20px 40px rgba(0,0,0,.07);;
+$box-shadown-2: 5px 5px 15px rgba(0, 0, 0, 0.05);
+$box-shadown-3: 20px 20px 54px rgba(0, 0, 0, 0.03);
+$box-shadown-3-hover: 20px 20px 54px rgba(0, 0, 0, 0.05);
+
+
+//4. Borders
+$border-color: #E5E5E5;
+$border-color-2: #ffb0b1;
+$border-color-3: #c4c4c4;
+$border-color-4: #6B7280;
+$border-color-5: #000000;
+
+//5. Backgrounds
+$background-1: #F2F3F4;
+$background-2: #F4F6FA;
+$background-3: #DEF9EC;
+$background-4: #F52D16;
+$background-5: #1A47BB;
+$background-6: #FFFFFF;
+
+$__left:left;
+$__right:right;
+$__absolute:absolute;
+$__relative:relative;
+

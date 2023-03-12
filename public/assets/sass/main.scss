@@ -1,0 +1,58 @@
+/***
+ Theme Name: VEBMUHANDIS
+ Description: Grocery, Super Market, eCommerce HTML Template
+ Version: 1.0
+
+==============================
+
+***/
+
+// 1. Configuration
+
+@import
+  'mixins/variables',
+  'mixins/mixins';
+
+// 2. Vendors
+
+@import
+  'plugins/plugins-import';
+
+// 3. Base
+
+@import
+  'base/common',
+  'base/animation',
+  'base/typography';
+
+// 4. Components
+
+@import
+  'components/buttons',
+  'components/form',
+  'components/slider',
+  'components/card',
+  'components/tabs',
+  'components/misc',
+  'components/banners',
+  'components/accordion';
+
+// 5. Pages
+
+@import
+  'pages/page',
+  'pages/shop',
+  'pages/blog',
+  'pages/print',
+  'pages/invoice',
+  'pages/vendors';
+
+// 6. Layout
+
+@import
+'layout/header',
+'layout/navigation',
+'layout/sidebar',
+'layout/footer',
+'layout/spacing',
+'layout/responsive';

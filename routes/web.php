@@ -14,8 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home.index');
-})->name('home');
+    return view('front.index');
+})->name('front');
+
+Route::get('/wishlist', function () {
+    return view('front.wishlist');
+})->name('front.wishlist');
+
+Route::get('/cart', function () {
+    return view('front.cart');
+})->name('front.cart');
+
+Route::get('/view-product', function () {
+    return view('front.view-product');
+})->name('front.view-product');
+
 
 Route::get('/admin', function () {
     return view('admin.dashboard');

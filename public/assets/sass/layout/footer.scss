@@ -1,0 +1,138 @@
+footer {
+	background: $color-gary-3;
+    .footer-social-icon {
+        display: flex;
+        align-items: center;
+        h6 {
+            display: inline-block;
+            margin-right: 15px;
+        }
+    }
+    .hotline {
+        min-width: 200px;
+        img {
+            min-width: 10px;
+            margin-right: 12px;
+            max-width: 30px;
+            opacity: 0.5;
+        }
+    }
+}
+.footer-about {
+    min-width: 300px;
+    font-size: 15px;
+	p {
+		font-size: 15px;
+		color: $color-grey-2;
+		margin-bottom: 18px;
+	}
+}
+.contact-info {
+    font-size: 15px;
+    color: $color-heading;
+    li {
+		margin-bottom: 17px;
+		p {
+			color: $color-grey-2;
+            margin-bottom: 0;
+			i {
+				color: $color-brand;
+				margin-right: 10px;
+			}
+		}
+    }
+}
+.footer-widget {
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
+    p {
+        font-size: 15px;
+        color: $color-heading;
+    }
+}
+
+.footer-list {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    min-width: 150px;
+    li {
+        display: block;
+        margin: 0 0 13px;
+        transition-duration: 0.3s;
+        &:last-child {
+            margin: 0;
+        }
+        &:hover {
+            padding-left: 5px;
+            transition-duration: 0.3s;
+        }
+        a {
+            font-size: 15px;
+            color: $color-grey-2;
+            display: block;
+            &:hover {
+                color: $color-brand;
+            }
+        }
+    }
+}
+.footer-bottom {
+    background: $color-grey-4;
+	@include margin-padding(null, 15px);
+	.footer-list {
+		@extend %flex-center;
+		float: $__right;
+		li {
+			@include margin-padding(0 0 0 10px, 0 0 0 10px);
+			& + li {
+			border-left: 1px solid $border-color-4;
+			}
+		}
+	}
+}
+
+#scrollUp {
+	width: 40px;
+    height: 40px;
+    color: $color-white;
+    right: 30px;
+    bottom: 30px;
+    border-radius: 7px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 999 !important;
+    border: 2px solid $color-brand;
+    background-color: $color-brand;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+        font-size: 26px;
+    }
+    &:hover {
+    color: $color-brand;
+        border: 2px solid $color-brand;
+        background-color: $color-white;
+        transform: translateY(-5px);
+    }
+}
+.footer-top {
+	@include margin-padding(null, 60px 0 30px);
+    .footer-title {
+        margin: 15px 0 20px 0;
+		font-weight: 500;
+        font-size: 24px;
+        color: $color-black;
+    }
+}
+.footer-middle {
+	border-top: 1px solid $color-grey-4;
+	@include margin-padding(null, 30px 0 60px);
+	.footer-title {
+		font-weight: 500;
+        font-size: 24px;
+        color: $color-black;
+    }
+}
