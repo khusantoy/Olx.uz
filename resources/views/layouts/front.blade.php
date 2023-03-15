@@ -65,7 +65,7 @@
                             <div class="header-details">
                                 <div class="header-inner">
                                     <div class="header-inner-icon">
-                                        <a href="wishlist.html" class="d-flex align-items-center">
+                                        <a href="{{route('front.wishlist')}}" class="d-flex align-items-center">
                                             <span><img src="assets/img/icons/icon-wishlist.svg" alt=""></span>
                                             <span class="lable mt-0">Wishlist (0)</span>
                                         </a>
@@ -78,7 +78,7 @@
                                         <div class="cart-dropdown-wrap account-dropdown">
                                             <ul>
                                                 <li>
-                                                    <a href="account.html">My Account</a>
+                                                    <a href="{{route('front.account')}}">My Account</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{route('front.wishlist')}}">Wishlist</a>

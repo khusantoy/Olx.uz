@@ -25,6 +25,10 @@ Route::get('/cart', function () {
     return view('front.cart');
 })->name('front.cart');
 
+Route::get('/account', function () {
+    return view('front.account');
+})->name('front.account');
+
 Route::get('/view-product', function () {
     return view('front.view-product');
 })->name('front.view-product');
