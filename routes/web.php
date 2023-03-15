@@ -34,10 +34,12 @@ Route::get('/view-product', function () {
 })->name('front.view-product');
 
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->name('admin');
-
-Route::get('/test', function () {
-    return '2';
+Route::group(['middleware' => 'auth'],function (){
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    })->name('admin');
 });
+
+
+@include('auth.php');
+
