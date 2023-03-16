@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Admin\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Permissions;
 use App\Http\Requests\StorePermissionsRequest;
 use App\Http\Requests\UpdatePermissionsRequest;

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Admin\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Roles;
 use App\Http\Requests\StoreRolesRequest;
 use App\Http\Requests\UpdateRolesRequest;
