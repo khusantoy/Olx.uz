@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Announcement::class);
     }
+
+    public function roles()
+    {
+        return $this->hasMany(Roles::class);
+    }
 }
