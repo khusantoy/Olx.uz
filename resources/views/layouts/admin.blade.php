@@ -11,11 +11,9 @@
         content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="{{ asset('back/img/icons/icon-48x48.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('back/img/icons/logo.png') }}" />
 
-    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
-    <title>@yield('title', 'Admin Kit')</title>
+    <title>@yield('title', 'OLX admin')</title>
 
     <link href="{{ asset('back/css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -26,25 +24,45 @@
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
                 <a class="sidebar-brand" href="index.html">
-                    <span class="align-middle">AdminKit</span>
+                    <span class="align-middle">OLX market</span>
                 </a>
 
                 <ul class="sidebar-nav">
                     <li class="sidebar-header">
-                        Pages
+                        Statistics
                     </li>
 
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item {{ (request()->is('staffs*')) ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{asset('admin')}}">
                             <i class="align-middle" data-feather="sliders"></i> <span
                                 class="align-middle">Dashboard</span>
                         </a>
                     </li>
 
+                    <li class="sidebar-header">
+                        User Management
+                    </li>
+
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="pages-profile.html">
-                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+                        <a class="sidebar-link" href="pages-sign-in.html">
+                            <i class="align-middle" data-feather="users"></i> <span class="align-middle">Users</span>
                         </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="pages-sign-in.html">
+                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">Roles</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="pages-sign-in.html">
+                            <i class="align-middle" data-feather="lock"></i> <span class="align-middle">Permissions</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-header">
+                        Page
                     </li>
 
                     <li class="sidebar-item">
@@ -65,72 +83,7 @@
                             <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
                         </a>
                     </li>
-
-                    <li class="sidebar-header">
-                        Tools & Components
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-buttons.html">
-                            <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-forms.html">
-                            <i class="align-middle" data-feather="check-square"></i> <span
-                                class="align-middle">Forms</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-cards.html">
-                            <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-typography.html">
-                            <i class="align-middle" data-feather="align-left"></i> <span
-                                class="align-middle">Typography</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="icons-feather.html">
-                            <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-header">
-                        Plugins & Addons
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="charts-chartjs.html">
-                            <i class="align-middle" data-feather="bar-chart-2"></i> <span
-                                class="align-middle">Charts</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="maps-google.html">
-                            <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
-                        </a>
-                    </li>
                 </ul>
-
-                <div class="sidebar-cta">
-                    <div class="sidebar-cta-content">
-                        <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-                        <div class="mb-3 text-sm">
-                            Are you looking for more components? Check out our premium version.
-                        </div>
-                        <div class="d-grid">
-                            <a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </nav>
 

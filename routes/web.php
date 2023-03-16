@@ -33,6 +33,10 @@ Route::get('/view-product', function () {
     return view('front.view-product');
 })->name('front.view-product');
 
+Route::get('/product-category', function () {
+    return view('front.product-category');
+})->name('front.product-category');
+
 
 Route::group(['middleware' => 'auth'],function (){
     Route::get('/admin', function () {
