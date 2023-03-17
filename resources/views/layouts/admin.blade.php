@@ -11,7 +11,6 @@
         content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="{{ asset('back/img/icons/logo.png') }}" />
 
     <title>@yield('title', 'OLX admin')</title>
 
@@ -44,19 +43,19 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="pages-sign-in.html">
+                        <a class="sidebar-link" href="{{route('users.index')}}">
                             <i class="align-middle" data-feather="users"></i> <span class="align-middle">Users</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="pages-sign-in.html">
+                        <a class="sidebar-link" href="{{route('roles.index')}}">
                             <i class="align-middle" data-feather="user"></i> <span class="align-middle">Roles</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="pages-sign-in.html">
+                        <a class="sidebar-link" href="{{route('permissions.index')}}">
                             <i class="align-middle" data-feather="lock"></i> <span class="align-middle">Permissions</span>
                         </a>
                     </li>
@@ -273,36 +272,6 @@
 
             @yield('content')
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-start">
-                            <p class="mb-0">
-                                <a class="text-muted" href="https://adminkit.io/"
-                                    target="_blank"><strong>AdminKit</strong></a> - <a class="text-muted"
-                                    href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin
-                                        Template</strong></a> &copy;
-                            </p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 
