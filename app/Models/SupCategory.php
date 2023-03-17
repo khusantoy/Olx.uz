@@ -12,10 +12,11 @@ class SupCategory extends Model
     
     protected $fillable = [
         'title',
+        'category_id',
         'image',
     ];
 
-    public function Category()
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }

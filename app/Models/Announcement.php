@@ -12,7 +12,7 @@ class Announcement extends Model
     protected $fillable = [
         'title',
         'description',
-        'image',
+       
         'type',
         'view',
         'price',

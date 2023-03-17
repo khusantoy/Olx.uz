@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('front.index');
+
+        $categories =Category::with('supCategories')->get();
+
+    return view('front.index',compact('categories'));
 })->name('front');
 
 Route::get('/wishlist', function () {
