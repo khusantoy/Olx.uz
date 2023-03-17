@@ -10,6 +10,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    @livewireStyles
 </head>
 
 <body>
@@ -653,6 +654,7 @@
     <!-- /Quick view -->
 
     <!-- jQuery -->
+    @livewireScripts
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 
     <!-- Bootstrap Core JS -->

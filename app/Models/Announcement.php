@@ -12,7 +12,7 @@ class Announcement extends Model
     protected $fillable = [
         'title',
         'description',
-       
+
         'type',
         'view',
         'price',
@@ -29,9 +29,9 @@ class Announcement extends Model
         return $this->belongsTo(Category::class);
     }
 
-    const  TYPES=[
+    const  TYPES = [
         'new',
         'sotuvda',
         'sotildi'
-        ];
+    ];
 }

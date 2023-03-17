@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Announcement;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-        $categories =Category::with('supCategories')->get();
+        $categories =Category::with(['supCategories'=>function($query){
+            return $query->whereNot('title',"like","%10%");
+        }])->get();
+      
 
-    return view('front.index',compact('categories'));
+    return view('front.index',compact('categories' ));
 })->name('front');
 
 Route::get('/wishlist', function () {
