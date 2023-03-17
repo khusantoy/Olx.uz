@@ -82,6 +82,11 @@
                             <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
                         </a>
                     </li>
+<<<<<<< Updated upstream
+=======
+
+                   
+>>>>>>> Stashed changes
                 </ul>
             </div>
         </nav>
@@ -296,18 +301,18 @@
                         backgroundColor: gradient,
                         borderColor: window.theme.primary,
                         data: [
-                            2115,
-                            1562,
-                            1584,
-                            1892,
-                            1587,
-                            1923,
-                            2566,
-                            2448,
-                            2805,
-                            3438,
-                            2917,
-                            3327
+                            0,
+                            4000,
+                            0,
+                            4000,
+                            0,
+                            4000,
+                            0,
+                            4000,
+                            0,
+                            4000,
+                            0,
+                            4000
                         ]
                     }]
                 },
@@ -357,7 +362,7 @@
                 data: {
                     labels: ["Chrome", "Firefox", "IE"],
                     datasets: [{
-                        data: [4306, 3801, 1689],
+                        data: [3333, 3333, 3333],
                         backgroundColor: [
                             window.theme.primary,
                             window.theme.warning,
@@ -392,7 +397,7 @@
                         borderColor: window.theme.primary,
                         hoverBackgroundColor: window.theme.primary,
                         hoverBorderColor: window.theme.primary,
-                        data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+                        data: [54, 10, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
                         barPercentage: .75,
                         categoryPercentage: .5
                     }]
