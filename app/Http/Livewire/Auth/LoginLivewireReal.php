@@ -35,10 +35,16 @@ class LoginLivewireReal extends Component
 
                 $this->user_yoq=false;
                 Auth::login($user);
+
+                if($user->is_admin){
+                    return redirect()->route('admin');
+                }
                 return redirect()->route('front');
             }else{
                $this->user_yoq=true;
             }
+        }else{
+            $this->user_yoq=true;
         }
 
     }
