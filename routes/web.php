@@ -45,7 +45,11 @@ Route::group(['middleware' => 'auth'],function (){
     Route::resource('/users', \App\Http\Controllers\UsersController::class);
     Route::resource('/roles', \App\Http\Controllers\RoleController::class);
     Route::resource('/permissions', \App\Http\Controllers\PermissionController::class);
+
+    Route::resource('announcements', \App\Http\Controllers\AnnouncementController::class);
+   Route::post('announcements',[\App\Http\Controllers\AnnouncementController::class,'store'])->name('announcements.store');
 });
+
 
 
 @include('auth.php');

@@ -61,6 +61,16 @@
                     </li>
 
                     <li class="sidebar-header">
+                        Announcements
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{route('announcements.index')}}">
+                            <i class="align-middle" data-feather="book"></i> <span class="align-middle">announcements</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-header">
                         Page
                     </li>
 
@@ -85,7 +95,7 @@
 <<<<<<< Updated upstream
 =======
 
-                   
+
 >>>>>>> Stashed changes
                 </ul>
             </div>
