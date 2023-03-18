@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class LoginLivewire extends Component
 {
-    public $name,$email,$password,$password_confirmation,$check=false;
+    public $name,$email,$password,$password_confirmation, $check;
 
     protected $rules=[
       'name'=>'required',

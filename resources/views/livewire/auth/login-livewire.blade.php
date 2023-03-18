@@ -39,8 +39,8 @@
         </div>
         <div class="chek-form">
             <div class="custome-checkbox">
-                <input class="form-check-input" wire:model="check" type="checkbox" name="checkbox" id="exampleCheckbox12" value="">
-                <label class="form-check-label" for="exampleCheckbox12"><span>By continuing, you agree to litzagency <a href="terms-conditions.html">Terms of Use</a> and <a href="privacy-policy.html">Privacy Policy.</a></span></label>
+                <input class="form-check-input" wire:model="check" type="checkbox" id="exampleCheckbox12" value="">
+                <label class="form-check-label" for="exampleCheckbox12"><span>By continuing, you agree to litzagency <a href="{{'oferta'}}">Terms of Use</a> and <a href="privacy-policy.html">Privacy Policy.</a></span></label>
                 @error('check')
                 <span style="color: red">
                 {{$message}}

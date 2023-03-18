@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-        $categories =Category::with(['supCategories'=>function($query){
-            return $query->whereNot('title',"like","%10%");
-        }])->get();
+    $categories = Category::with(['supCategories' => function ($query) {
+        return $query->whereNot('title', "like", "%10%");
+    }])->get();
 
 
-    return view('front.index',compact('categories' ));
+    return view('front.index', compact('categories'));
 })->name('front');
 
 Route::get('/wishlist', function () {
@@ -47,21 +47,22 @@ Route::get('/product-category', function () {
     return view('front.product-category');
 })->name('front.product-category');
 
+Route::get('/oferta', function () {
+    return view('auth.oferta');
+});
 
-Route::group(['middleware' => 'auth'],function (){
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {
         return view('admin.dashboard');
     })->name('admin');
     Route::resource('/users', \App\Http\Controllers\UsersController::class);
     Route::resource('/roles', \App\Http\Controllers\RoleController::class);
     Route::resource('/permissions', \App\Http\Controllers\PermissionController::class);
-
     Route::resource('announcements', \App\Http\Controllers\AnnouncementController::class);
-   Route::post('announcements',[\App\Http\Controllers\AnnouncementController::class,'store'])->name('announcements.store');
+    Route::post('announcements', [\App\Http\Controllers\AnnouncementController::class, 'store'])->name('announcements.store');
     Route::resource('categories', CategoryController::class);
     Route::resource('supcategories', SupCategoryController::class);
 });
-
 
 
 @include('auth.php');
