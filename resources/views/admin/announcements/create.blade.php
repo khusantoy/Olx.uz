@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1 class="h3 mb-3"><strong>Create</strong> User</h1>
+    <h1 class="h3 mb-3"><strong>Create</strong> Elon</h1>
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -16,7 +16,7 @@
                         @endif
                         @csrf
                         <div class="mb-3">
-                            <label for="name" class="form-label"> {{route('announcements.store')}} e</label>
+                            <label for="name" class="form-label">Title</label>
                             <input type="text" name="title" class="form-control" id="title">
                         </div>
                         <div class="mb-3">

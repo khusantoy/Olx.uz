@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Admin\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -14,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories=Category::with('supCategories')->get();
+        return view('admin.categories.index',compact('categories'));
     }
 
     /**
@@ -22,46 +22,71 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $file = $request->file('image');
+        $image_name = uniqid() . $file->getClientOriginalName();
+        $data['image'] = $image_name;
+        $file->move(public_path('uploads/categories'), $image_name);
+        $request->validate([
+            'title'=>'required|min:2|max:255',
+        ]);
+        Category::create($data);
+        return redirect()->route('categories.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(string $id)
     {
-        //
+        $category=Category::find($id);
+        return view('admin.categories.show',compact('category'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(string $id)
     {
-        //
+        $category=Category::find($id);
+        return view('admin.categories.edit',compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(Request $request, string $id)
     {
-        //
+        $category=Category::find($id);
+        $data = $request->all();
+        $file = $request->file('image');
+        $image_name = uniqid().$file->getClientOriginalName();
+        $data['image'] = $image_name;
+        if ($category->image) {
+            $file->move(public_path('uploads/categories'), $image_name);
+        }else{
+            $file->move(public_path('uploads/categories'), $image_name);
+        }
+        $category->update($data);
+        return redirect()->route('categories.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(string $id)
     {
-        //
+        $category=Category::find($id);
+        $category->delete();
+        return back();
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SupCategoryController;
 use App\Models\Announcement;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +22,7 @@ Route::get('/', function () {
         $categories =Category::with(['supCategories'=>function($query){
             return $query->whereNot('title',"like","%10%");
         }])->get();
-      
+
 
     return view('front.index',compact('categories' ));
 })->name('front');
@@ -56,6 +58,8 @@ Route::group(['middleware' => 'auth'],function (){
 
     Route::resource('announcements', \App\Http\Controllers\AnnouncementController::class);
    Route::post('announcements',[\App\Http\Controllers\AnnouncementController::class,'store'])->name('announcements.store');
+    Route::resource('categories', CategoryController::class);
+    Route::resource('supcategories', SupCategoryController::class);
 });
 
 

@@ -22,7 +22,7 @@
     <div class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class="sidebar-brand" href="index.html">
+                <a class="sidebar-brand" href="{{asset('admin')}}">
                     <span class="align-middle">OLX market</span>
                 </a>
 
@@ -59,7 +59,20 @@
                             <i class="align-middle" data-feather="lock"></i> <span class="align-middle">Permissions</span>
                         </a>
                     </li>
+                    <li class="sidebar-header">
+                        Categories
+                    </li>
 
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{route('categories.index')}}">
+                            <i class="align-middle" data-feather="book"></i> <span class="align-middle">Categories</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{route('supcategories.index')}}">
+                            <i class="align-middle" data-feather="book"></i> <span class="align-middle">SubCategories</span>
+                        </a>
+                    </li>
                     <li class="sidebar-header">
                         Announcements
                     </li>
@@ -92,11 +105,6 @@
                             <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
                         </a>
                     </li>
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
                 </ul>
             </div>
         </nav>
