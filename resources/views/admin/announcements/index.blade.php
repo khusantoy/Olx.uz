@@ -62,6 +62,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {{$announcements->links()}}
                 </div>
             </div>
             </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
+use App\Models\Image;
+use App\Models\SupCategory;
 use Illuminate\Http\Request;
 
 class AnnouncementController extends Controller
@@ -12,7 +14,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcements=Announcement::all();
+            $announcements=Announcement::paginate(20);
         return view('admin.announcements.index',compact('announcements'));
     }
 
@@ -21,7 +23,8 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        return view('admin.announcements.create');
+        $categories=SupCategory::pluck('title','id');
+        return view('admin.announcements.create',compact('categories'));
     }
 
     /**
@@ -35,6 +38,7 @@ class AnnouncementController extends Controller
           'description'=>'required',
           'type_id'=>'required',
           'price'=>'required',
+          'image'=>'required',
        ]);
        $massiv=[
            'title'=>$request->title,
@@ -43,9 +47,19 @@ class AnnouncementController extends Controller
            'price'=>$request->price,
            'view'=>'0',
            'user_id'=>auth()->user()->id,
-           'category_id'=>1
+           'category_id'=>$request->category_id,
        ];
-       Announcement::create($massiv);
+
+       $elon=  Announcement::create($massiv);
+
+        foreach ($request->image as $image) {
+            $file = $image;
+            $image_name = uniqid() . $file->getClientOriginalName();
+            $i= new Image(['name'=>$image_name]);
+            $elon->images()->save($i);
+            $file->move(public_path('images'), $image_name);
+       }
+
 
        return redirect()->route('announcements.index');
 

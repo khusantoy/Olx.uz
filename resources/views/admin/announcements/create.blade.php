@@ -1,9 +1,9 @@
 @extends('layouts.admin')
-
 @section('content')
-    <h1 class="h3 mb-3"><strong>Create</strong> Elon</h1>
-    <div class="row">
-        <div class="col-12">
+    <main class="content">
+        <h1 class="h3 mb-3"><strong>Elonlar</strong> </h1>
+        <div class="row">
+            <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <form action="{{route('announcements.store')}}" class="" method="post" enctype="multipart/form-data">
@@ -25,7 +25,7 @@
                         </div>
                         <div class="mb-2 w-50">
                             <label for="image" class="form-label">Images</label>
-                            <input type="file" name="image" multiple class="form-control" id="password">
+                            <input type="file" name="image[]" multiple class="form-control" id="password">
                         </div>
                             <div class="mb-2 w-50">
                                 <label for="image"  class="form-label">type</label>
@@ -40,7 +40,15 @@
                                 <label for="image" class="form-label">Price</label>
                                 <input type="number" name="price" class="form-control" id="password">
                             </div>
-
+                            <div class="mb-2 w-50">
+                                <label for="image"  class="form-label">category</label>
+                                <select name="category_id" class="form-control">
+                                    <option value=""></option>
+                                    @foreach($categories as $key=>$title)
+                                        <option value="{{$key}}">{{$title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         <button class="btn btn-primary mt-3" type="submit">
                             Create
                         </button>
@@ -53,6 +61,30 @@
                     </form>
                 </div>
             </div>
+            </div>
         </div>
-    </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+        $('.show_confirm').click(function(event) {
+            var form =  $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                title: `Are you sure you want to delete this record?`,
+                text: "If you delete this, it will be saved to archive.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+
+    </script>
 @endsection

@@ -28,7 +28,10 @@ class Announcement extends Model
     {
         return $this->belongsTo(Category::class);
     }
-
+    public function images()
+    {
+        return $this->morphMany('App\Models\Image', 'commentable');
+    }
     const  TYPES = [
         'new',
         'sotuvda',
