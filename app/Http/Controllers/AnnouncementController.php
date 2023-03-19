@@ -6,6 +6,7 @@ use App\Models\Announcement;
 use App\Models\Image;
 use App\Models\SupCategory;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class AnnouncementController extends Controller
 {
@@ -14,6 +15,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
+        Paginator::useBootstrap();
             $announcements=Announcement::paginate(20);
         return view('admin.announcements.index',compact('announcements'));
     }
@@ -78,7 +80,9 @@ class AnnouncementController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $elon=Announcement::find($id);
+        $categories=SupCategory::pluck('title','id');
+        return view('admin.announcements.edit' ,compact('elon','categories'));
     }
 
     /**
@@ -86,7 +90,40 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+            'type_id'=>'required',
+            'price'=>'required',
+        ]);
+        $massiv=[
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'type'=>$request->type_id,
+            'price'=>$request->price,
+            'view'=>'0',
+            'user_id'=>auth()->user()->id,
+            'category_id'=>$request->category_id,
+        ];
+
+        $elon= Announcement::find($id);
+           $elon->update($massiv);
+
+           if($request->image){
+
+        foreach ($request->image as $image) {
+            $file = $image;
+            $image_name = uniqid() . $file->getClientOriginalName();
+            $i= new Image(['name'=>$image_name]);
+            $elon->images()->save($i);
+            $file->move(public_path('images'), $image_name);
+        }
+
+           }
+
+        return redirect()->route('announcements.index');
+
     }
 
     /**
