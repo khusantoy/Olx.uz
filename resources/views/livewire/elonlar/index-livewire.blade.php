@@ -7,7 +7,18 @@
                 <div class="product-img-col">
                     <div class="product-img product-img-zoom">
                         <a href="{{ route('front.view-product') }}">
-                            <img src="assets/img/shop/product-19.jpg" alt="">
+                            @php
+                            if (!count($announcement->images)==0){
+
+                            $name=$announcement->images[0]->name;
+                            }
+                            @endphp
+                            <img src="{{asset('images/'.$name)}}" alt="">
+                            @php
+
+                                $name='';
+
+                            @endphp
                         </a>
                     </div>
                     <div class="product-inner-details">
@@ -49,4 +60,4 @@
     @endforeach
     <!-- /Product box -->
 
-</div>  
+</div>

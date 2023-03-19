@@ -31,7 +31,7 @@ class SupCategorySeeder extends Seeder
                     $elonlar_data[] = [
                         'title'=>"elon title sub_id".$count,
                         'description'=>"elon description sub_id".$count,
-                        
+
                         'type'=>"1",
                         'view'=>0,
                         'price'=>1000,
