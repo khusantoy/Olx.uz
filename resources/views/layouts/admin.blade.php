@@ -64,12 +64,12 @@
                         Categories
                     </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('categories.index')}}">
+                    <li class="sidebar-item {{ (request()->is('categories*')) ? 'active' : '' }}">
+                        <a class="sidebar-link active" href="{{route('categories.index')}}">
                             <i class="align-middle" data-feather="book"></i> <span class="align-middle">Categories</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item {{ (request()->is('supcategories*')) ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{route('supcategories.index')}}">
                             <i class="align-middle" data-feather="book"></i> <span class="align-middle">SubCategories</span>
                         </a>

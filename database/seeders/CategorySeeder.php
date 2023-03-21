@@ -15,11 +15,11 @@ class CategorySeeder extends Seeder
     {
         Category::insert([
             [
-                'title'=>"Avto",
+                'title'=>"Transport",
                 'image'=>''
             ],
             [
-                'title'=>"Uy-joy",
+                'title'=>"Ko'chmas mulk",
                 'image'=>''
             ],
             [
@@ -32,6 +32,18 @@ class CategorySeeder extends Seeder
             ],
             [
                 'title'=>"Kitoblar",
+                'image'=>''
+            ],
+            [
+                'title'=>"Hayvonlar",
+                'image'=>''
+            ],
+            [
+                'title'=>"Xizmatlar",
+                'image'=>''
+            ],
+            [
+                'title'=>"Bepul",
                 'image'=>''
             ],
         ]);
