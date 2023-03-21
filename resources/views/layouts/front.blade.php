@@ -88,19 +88,17 @@
                         <div class="header-search">
                             <form action="product-category-list.html">
                                 <select class="select-active">
+                                    @foreach ($categories as $category)
                                     <option>All Categories</option>
-                                    <option>Tshirt for Men</option>
-                                    <option>Computers</option>
-                                    <option>Electrnoics</option>
-                                    <option>Books</option>
-                                    <option>Beauty</option>
-                                    <option>Television</option>
+                                    <option>{{ $category->title }}</option>
+                                    @endforeach
                                 </select>
                                 <input type="text" placeholder="Search for items...">
                                 <input type="submit" name="form-submit" class="submit-btn">
                             </form>
                         </div>
                     </div>
+                    <button class="btn">E'lon berish</button>
                 </div>
             </div>
         </div>

@@ -32,7 +32,7 @@
                         Statistics
                     </li>
 
-                    <li class="sidebar-item {{ (request()->is('staffs*')) ? 'active' : '' }}">
+                    <li class="sidebar-item {{ (request()->is('admin*')) ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{asset('admin')}}">
                             <i class="align-middle" data-feather="sliders"></i> <span
                                 class="align-middle">Dashboard</span>
@@ -43,19 +43,19 @@
                         User Management
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item {{ (request()->is('users*')) ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{route('users.index')}}">
                             <i class="align-middle" data-feather="users"></i> <span class="align-middle">Users</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item {{ (request()->is('roles*')) ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{route('roles.index')}}">
                             <i class="align-middle" data-feather="user"></i> <span class="align-middle">Roles</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item {{ (request()->is('permissions*')) ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{route('permissions.index')}}">
                             <i class="align-middle" data-feather="lock"></i> <span class="align-middle">Permissions</span>
                         </a>
@@ -75,12 +75,12 @@
                         </a>
                     </li>
                     <li class="sidebar-header">
-                        Announcements
+                        Ads
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item {{ (request()->is('announcements*')) ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{route('announcements.index')}}">
-                            <i class="align-middle" data-feather="book"></i> <span class="align-middle">announcements</span>
+                            <i class="align-middle" data-feather="book"></i> <span class="align-middle">Ads</span>
                         </a>
                     </li>
 
