@@ -23,7 +23,7 @@ class IndexLivewire extends Component
     }
     public function render()
     {
-        $elonlar=Announcement::take($this->count)->get();
+        $elonlar=Announcement::take($this->count)->orderByDesc('id')->get();
         $elon=$this->elon;
         return view('livewire.elonlar.index-livewire',compact('elonlar','elon'));
     }

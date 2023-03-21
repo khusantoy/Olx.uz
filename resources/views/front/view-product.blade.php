@@ -25,28 +25,14 @@
                                                 <figure class="border-radius-7">
                                                     <img src="assets/img/shop/product-big-1.jpg" alt="product image" />
                                                 </figure>
-                                                <figure class="border-radius-7">
-                                                    <img src="assets/img/shop/product-big-2.jpg" alt="product image" />
-                                                </figure>
-                                                <figure class="border-radius-7">
-                                                    <img src="assets/img/shop/product-big-1.jpg" alt="product image" />
-                                                </figure>
-                                                <figure class="border-radius-7">
-                                                    <img src="assets/img/shop/product-big-2.jpg" alt="product image" />
-                                                </figure>
-                                                <figure class="border-radius-7">
-                                                    <img src="assets/img/shop/product-big-1.jpg" alt="product image" />
-                                                </figure>
+
                                             </div>
                                             <span class="zoom-icon"><i class="feather-maximize-2"></i></span>
                                         </div>
                                         <!-- THUMBNAILS -->
                                         <div class="slider-nav-thumbnails">
                                             <div><img src="assets/img/shop/product-big-1.jpg" alt="product image" /></div>
-                                            <div><img src="assets/img/shop/product-big-2.jpg" alt="product image" /></div>
-                                            <div><img src="assets/img/shop/product-big-1.jpg" alt="product image" /></div>
-                                            <div><img src="assets/img/shop/product-big-2.jpg" alt="product image" /></div>
-                                            <div><img src="assets/img/shop/product-big-1.jpg" alt="product image" /></div>
+
                                         </div>
                                     </div>
                                     <!-- End Gallery -->

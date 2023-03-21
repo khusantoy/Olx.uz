@@ -16,7 +16,7 @@ class AnnouncementController extends Controller
     public function index()
     {
         Paginator::useBootstrap();
-            $announcements=Announcement::paginate(20);
+            $announcements=Announcement::orderByDesc('id')->paginate(20);
         return view('admin.announcements.index',compact('announcements'));
     }
 
@@ -72,7 +72,9 @@ class AnnouncementController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $elon=Announcement::find($id);
+        return view('admin.announcements.show' ,compact('elon'));
+
     }
 
     /**
@@ -131,6 +133,8 @@ class AnnouncementController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $elon= Announcement::find($id);
+        $elon->delete();
+        return back();
     }
 }

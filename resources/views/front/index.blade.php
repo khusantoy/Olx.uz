@@ -3,8 +3,6 @@
 @section('title')
     OLX
 @endsection
-
-
 @section('content')
     <main class="main">
         <!-- Top Products -->
@@ -14,7 +12,6 @@
 
                    @livewire('elonlar.index-livewire')
                 </div>
-                
                 @livewire('elonlar.viewmore')
 
             </div>

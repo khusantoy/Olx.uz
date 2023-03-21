@@ -12,7 +12,6 @@ class Announcement extends Model
     protected $fillable = [
         'title',
         'description',
-
         'type',
         'view',
         'price',
@@ -33,8 +32,8 @@ class Announcement extends Model
         return $this->morphMany('App\Models\Image', 'commentable');
     }
     const  TYPES = [
-        'new',
-        'sotuvda',
-        'sotildi'
+        '0'=>'new',
+        '1'=>'sotuvda',
+        '2'=>'sotildi'
     ];
 }

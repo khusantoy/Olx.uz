@@ -1,61 +1,69 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="card">
-    <div class="card-header">
+    <div class="card">
+        <div class="card-header">
 
-    </div>
+        </div>
 
-    <div class="card-body">
-        <div class="form-group">
+        <div class="card-body">
             <div class="form-group">
+                <div class="form-group">
+                    <div class="form-group">
+                        <a class="btn btn-danger" href="{{ route('announcements.index') }}">
+                            Back
+                        </a>
+                    </div>
+                </div>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>View</th>
+                    <th>Price</th>
+                    <th>User</th>
+                    <th>Category</th>
 
-            </div>
-            <table class="table table-bordered table-striped">
-               <thead>
-               <th>
-                   Id
-               </th>
-               <th>
-                   Qayerga
-               </th>
-               <th>
-                   Qancha
-               </th>
-               <th>
-                   qachon
-               </th>
-
-               </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     <tr>
+                    <tr>
+                        <td>{{$elon->id}}</td>
+                        <td>{{$elon->title}}</td>
+                        <td>{{$elon->description}}</td>
                         <td>
-                            {{ $rasxod->id }}
+                            {{\App\Models\Announcement::TYPES[$elon->type]}}
                         </td>
                         <td>
-                            {{ $rasxod->name }}
+                            {{$elon->view}}
                         </td>
                         <td>
-                            {{ $rasxod->price }}
+                            {{$elon->price}}
                         </td>
-                        <td>
-                            @php
-                                $date = new DateTimeImmutable($rasxod->created_at);
-                                echo $date->format('Y, m, d ');
-                            @endphp
-                        </td>
+                        <td>{{$elon->category->title}}</td>
+                        <td>{{$elon->user->name}}</td>
+
                     </tr>
-                </tbody>
-            </table>
-            <div class="form-group">
-                    <a class="btn btn-danger" href="{{ route('rasxods.index') }}">
-                    Back
-                </a>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>Images</tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        @foreach($elon->images as $image)
+                            <td><img width="100px" src="{{asset('images/'.$image->name)}}" alt="images"></td>
+                        @endforeach
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+
             </div>
         </div>
     </div>
-</div>
-
-
 
 @endsection
