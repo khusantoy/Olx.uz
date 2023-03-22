@@ -86,16 +86,7 @@
                 <div class="header-col">
                     <div class="header-right">
                         <div class="header-search">
-                            <form action="product-category-list.html">
-                                <select class="select-active">
-                                    @foreach ($categories as $category)
-                                    <option>All Categories</option>
-                                    <option>{{ $category->title }}</option>
-                                    @endforeach
-                                </select>
-                                <input type="text" placeholder="Search for items...">
-                                <input type="submit" name="form-submit" class="submit-btn">
-                            </form>
+                          @livewire('elonfilter')
                         </div>
                     </div>
                     <button class="btn">E'lon berish</button>
@@ -105,50 +96,14 @@
         <div class="header-bottom sticky-bar">
             <div class="container">
                 <div class="header-col">
-                    <div class="header-nav d-none d-lg-flex">
-                        <div class="main-menu d-none d-lg-block">
-                            <nav>
-                                <ul>
-                                    @foreach ($categories as $category)
-                                        <li class="position-static">
-                                            <a href="#">{{ $category->title }}<i class="fi-rs-angle-down"></i></a>
-
-                                            <ul class="mega-menu">
-                                                <li class="sub-mega-menu sub-mega-menu-two">
-                                                    <div class="menu-banner-wrap">
-                                                        <div class="menu-banner-content">
-                                                            <p>Earn Extra 5% Cashback</p>
-                                                            <h4>Amazing Deals</h4>
-                                                            <h3>Just For You</h3>
-                                                            <div class="menu-banner-price">
-                                                                <span class="new-price text-success">Save to 50%</span>
-                                                            </div>
-                                                            <div class="menu-banner-btn">
-                                                                <a href="cart.html">Shop now</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                @foreach (array_chunk($category->supCategories->toArray(), 5) as $supCategoryMassiv)
-                                                    <li class="sub-mega-menu sub-mega-menu-one">
-                                                        <ul class="dropdown">
-                                                            @foreach ($supCategoryMassiv as $supCategory)
-                                                                <li><a
-                                                                        href="product-category-list.html">{{ $supCategory['title'] }}</a>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                    @endforeach
 
 
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+                    @livewire('categories-livewire', ['categories' => $categories])
+
+
+
+
+
                     <div class="contact-item d-none d-lg-flex">
                         <img src="assets/img/icons/icon-headphone-white.svg" alt="contact-number">
                         <p>CALL US NOW<span>+998 74 000 0000</span></p>
@@ -509,6 +464,15 @@
 
     <!-- jQuery -->
     @livewireScripts
+
+
+    <script>
+        document.addEventListener('category_bosildi',()=>{
+
+           
+         
+        })
+    </script>
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 
     <!-- Bootstrap Core JS -->

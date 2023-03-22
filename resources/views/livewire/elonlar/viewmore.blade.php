@@ -3,7 +3,7 @@
         <div class="col-12 col-lg-10 col-md-10">
 
         </div>
-        <div wire:click="$emit('loadmore')" class="col-12 col-lg-2 col-md-2 text-end">
+        <div wire:click="$emit('category_click',1,'test')" class="col-12 col-lg-2 col-md-2 text-end">
             <a  class="view-more">View More</a>
         </div>
     </div>

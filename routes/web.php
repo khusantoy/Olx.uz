@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/rate', function () {
+     dd(  Announcement::TYPES[1]);
+});
+
+
 Route::get('/', function () {
 
     $categories = Category::with(['supCategories' => function ($query) {
