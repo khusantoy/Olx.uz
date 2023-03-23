@@ -4,10 +4,10 @@
             <ul>
                 @foreach ($categories as $category)
                     <li class="position-static">
-                        <a wire:click="$emit('category_click',{{$category->id}});" href="#">{{ $category->title }}<i class="fi-rs-angle-down"></i></a>
+                        <a wire:click="$emit('category_click',{{$category->id}});" href="#">{{ $category->title }}</i></a>
 
                        
-                        <ul class="mega-menu" >
+                        <ul class="mega-menu d-none" >
                             <li class="sub-mega-menu sub-mega-menu-two">
                                 <div class="menu-banner-wrap">
                                     <div class="menu-banner-content">
