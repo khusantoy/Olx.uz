@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Elonlar;
 
 use App\Models\Announcement;
+use GuzzleHttp\Psr7\Request;
 use Livewire\Component;
 
 class IndexLivewire extends Component
@@ -50,5 +51,10 @@ class IndexLivewire extends Component
         $elonlar=$this->elonlar;
         $elon=$this->elon;
         return view('livewire.elonlar.index-livewire',compact('elonlar','elon'));
+    }
+
+    public function testanno()
+    {
+        dd(1);
     }
 }

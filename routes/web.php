@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SupCategoryController;
-use App\Models\Announcement;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -16,11 +15,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/rate', function () {
-     dd(  Announcement::TYPES[1]);
-});
-
 
 Route::get('/', function () {
 
@@ -38,9 +32,6 @@ Route::get('/cart', function () {
     return view('front.cart');
 })->name('front.cart');
 
-Route::get('/account', function () {
-    return view('front.account');
-})->name('front.account');
 
 Route::get('/view-product', function () {
     return view('front.view-product');
@@ -54,10 +45,18 @@ Route::get('/oferta', function () {
     return view('auth.oferta');
 });
 
+// Route::get('/account', function () {
+//     $categories = Category::with('supcategories')->get();
+//     return view('front.account', compact('categories'));
+// })->name('front.account');
+
+
 Route::group(['middleware' => 'auth'], function () {
+
     Route::get('/admin', function () {
         return view('admin.dashboard');
     })->name('admin');
+
     Route::resource('/users', \App\Http\Controllers\UsersController::class);
     Route::resource('/roles', \App\Http\Controllers\RoleController::class);
     Route::resource('/permissions', \App\Http\Controllers\PermissionController::class);
@@ -65,6 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('announcements', [\App\Http\Controllers\AnnouncementController::class, 'store'])->name('announcements.store');
     Route::resource('categories', CategoryController::class);
     Route::resource('supcategories', SupCategoryController::class);
+    
 });
 
 
