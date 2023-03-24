@@ -64,7 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('announcements', [\App\Http\Controllers\AnnouncementController::class, 'store'])->name('announcements.store');
     Route::resource('categories', CategoryController::class);
     Route::resource('supcategories', SupCategoryController::class);
-    
+
 });
 
 

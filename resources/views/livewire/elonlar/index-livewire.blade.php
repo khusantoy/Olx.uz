@@ -10,10 +10,10 @@
                             @php
                                 $name='';
                             if (!count($announcement->images)==0){
-                                $name=$announcement->images[0]->name;
+                            $name=$announcement->images[0]->name;
                             }
                             @endphp
-                                <img src="{{asset('images/'.$name)}}" alt="">
+                            <img src="{{asset('images/'.$name)}}" alt="">
                             @php
                                 $name='';
                             @endphp
