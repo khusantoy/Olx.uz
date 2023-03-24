@@ -10,10 +10,14 @@
                             @php
                                 $name='';
                             if (!count($announcement->images)==0){
-                                $name=$announcement->images[0]->name;
+                            $name=$announcement->images[0]->name;
                             }
                             @endphp
+<<<<<<< HEAD
                                 <img src="{{asset('storage/'.$name)}}" alt="">
+=======
+                            <img src="{{asset('images/'.$name)}}" alt="">
+>>>>>>> b3ba3e9453d911e2d0d35ead85b24fba7bbc9049
                             @php
                                 $name='';
                             @endphp

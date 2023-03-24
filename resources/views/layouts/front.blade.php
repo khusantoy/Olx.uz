@@ -79,7 +79,7 @@
                                                     <a href="{{ route('front.wishlist') }}">Wishlist</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('logout.front') }}">Sign Out</a>
+                                                    <a href="{{ route('logoutfront') }}">Sign Out</a>
                                                 </li>
                                             </ul>
                                         </div>
