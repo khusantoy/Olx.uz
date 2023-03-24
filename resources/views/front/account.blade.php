@@ -44,7 +44,7 @@
                                             <div id="collapseOne" class="accordion-collapse collapse show"
                                                 aria-labelledby="dashboard-one" data-bs-parent="#accordionExample">
                                                 <ul class="dashboard-sub-link">
-                                                    <li><a href="{{ route('front.account') }}" class="active">My Profile</a>
+                                                    {{-- <li><a href="{{ route('front.account') }}" class="active">My Profile</a> --}}
                                                     </li>
                                                     <li><a href="manage-address.html">Manage address</a></li>
                                                 </ul>
@@ -84,7 +84,7 @@
 
 
                                                 <a type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#change-user-settings">Edit</a> <span>|</span>
+                                                    data-target="#change-user-settings"  onclick="user()">Edit</a> <span>|</span>
                                                 <a aria-label="passwordmodal" class="edit-modal-btn" data-bs-toggle="modal"
                                                     data-bs-target="#passwordmodal">Change Password</a>
                                             </div>
@@ -111,4 +111,11 @@
             </div>
         </div>
     </main>
+
+    <script>
+
+        function user(){
+           Livewire.emit('user_editing',{{ auth()->user()->id }})
+        }
+    </script>
 @endsection

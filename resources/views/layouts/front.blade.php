@@ -11,6 +11,14 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     @livewireStyles
+
+    <style>
+
+        .opa{
+            opacity: .1;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -99,14 +107,14 @@
 
                     <div>
                         <!-- Modal -->
-                        @if (Auth::user())
+                        @if (Auth::check())
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#exampleModalCenter">
                                 E'lon berish
                             </button>
                         @else
                             <button class="btn btn-primary">
-                                <a href="{{ route('login') }}" class="text-white">E'lon berish uchun tizimga kirish</a>
+                                <a href="/login5" class="text-white">E'lon berish uchun tizimga kirish</a>
                             </button>
                         @endif
 
@@ -495,9 +503,9 @@
 
 
     <script>
-        document.addEventListener('category_bosildi', () => {
+        document.addEventListener('qaytadanrender', () => {
 
-
+               document.getElementById('qaytadanrender').click();
 
         })
     </script>

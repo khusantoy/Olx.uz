@@ -1,4 +1,4 @@
-<div class="row product-grid">
+<div class="row product-grid"  wire:loading.class="opa" >
     <!-- Product box -->
 
     @foreach ($elonlar as $announcement)
@@ -13,7 +13,7 @@
                                 $name=$announcement->images[0]->name;
                             }
                             @endphp
-                                <img src="{{asset('images/'.$name)}}" alt="">
+                                <img src="{{asset('storage/'.$name)}}" alt="">
                             @php
                                 $name='';
                             @endphp

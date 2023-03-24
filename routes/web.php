@@ -45,10 +45,10 @@ Route::get('/oferta', function () {
     return view('auth.oferta');
 });
 
-// Route::get('/account', function () {
-//     $categories = Category::with('supcategories')->get();
-//     return view('front.account', compact('categories'));
-// })->name('front.account');
+Route::get('/account', function () {
+    $categories = Category::with('supcategories')->get();
+    return view('front.account', compact('categories'));
+})->name('front.account');
 
 
 Route::group(['middleware' => 'auth'], function () {

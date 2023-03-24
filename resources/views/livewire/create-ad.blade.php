@@ -2,7 +2,7 @@
     <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">E'lon berish</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">X</span>
+            <span id="qaytadanrender" aria-hidden="true">X</span>
         </button>
     </div>
     <div class="modal-body">
@@ -26,7 +26,7 @@
             <div class="row col-md-12">
                 <div class="col-md-6">
                     <label for="image" class="form-label">Images</label>
-                    <input type="file" wire:model="image" name="image" multiple class="form-control"
+                    <input type="file" wire:model="image" multiple class="form-control"
                         id="password">
                 </div>
                 <div class="col-md-6">
@@ -50,7 +50,7 @@
                     <select name="category_id" wire:model="category_id" class="form-control">
                         <option value=""></option>
                         @foreach ($categories as $key => $category)
-                            <option value="{{ $key }}">{{ $category->title }}
+                            <option value="{{ $key }}">{{ $category }}
                             </option>
                         @endforeach
                     </select>

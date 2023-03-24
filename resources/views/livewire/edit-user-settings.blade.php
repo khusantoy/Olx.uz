@@ -17,16 +17,16 @@
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" wire:model="name" name="name" 
+                <input type="text" wire:model="user.name" name="name" 
                     class="form-control" id="name">
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Email</label>
-                <input type="email" wire:model="email" name="email" value="{{ Auth::user()->email }}"
+                <input type="email" wire:model="user.email" name="email" value="{{ Auth::user()->email }}"
                     class="form-control" id="email">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" wire:click="createAd">Edit</button>
+                <button type="button" class="btn btn-primary" wire:click="editUser">Edit</button>
             </div>
         </form>
     </div>

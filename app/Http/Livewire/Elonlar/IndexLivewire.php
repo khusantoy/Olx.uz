@@ -12,12 +12,13 @@ class IndexLivewire extends Component
     public $elon=false;
     public $elonlar;
      protected $listeners=[
-        'category_click'
+        'category_click','qaytadanrender'
     ];
-
-    public function mount(){
-        $this->elonlar=Announcement::take($this->count)->orderByDesc('id')->get();
+    public function qaytadanrender(){
+   
+        $this->render();    
     }
+
   
     public function category_click($category_id,$test=false){
         if( $test=='test'){
@@ -48,9 +49,10 @@ class IndexLivewire extends Component
     }
     public function render()
     {
-        $elonlar=$this->elonlar;
-        $elon=$this->elon;
-        return view('livewire.elonlar.index-livewire',compact('elonlar','elon'));
+        $this->elonlar=Announcement::take($this->count)->orderByDesc('id')->get();
+        
+        sleep(1);
+        return view('livewire.elonlar.index-livewire');
     }
 
     public function testanno()
