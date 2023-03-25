@@ -13,18 +13,14 @@
                             $name=$announcement->images[0]->name;
                             }
                             @endphp
-<<<<<<< HEAD
                                 <img src="{{asset('storage/'.$name)}}" alt="">
-=======
-                            <img src="{{asset('images/'.$name)}}" alt="">
->>>>>>> b3ba3e9453d911e2d0d35ead85b24fba7bbc9049
                             @php
                                 $name='';
                             @endphp
                         </a>
                     </div>
                     <div class="product-inner-details">
-                        <a aria-label="Quick view" class="product-btn"  wire:click="showElon({{$announcement->id}})"  data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                        <a aria-label="Quick view" class="product-btn" href="{{ route('ad-show' , $announcement) }}">
                             <i class="fi-rs-eye"></i>
                         </a>
                         <a aria-label="Search" class="product-btn" href="#">

@@ -3,13 +3,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', function () {
-   return view('auth.login');
-})->name('login');
 
-Route::get('/login5', function () {
+Route::get('/login', function () {
     return view('auth.login');
- });
+ })->name('login');
 
 Route::get('/register', function () {
     return view('auth.register');
