@@ -6,7 +6,7 @@
         <div class="container">
             <div class="page-header breadcrumb-wrap">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow"><i class="fas fa-home mr-10"></i>Home</a>
+                    <a href="{{route('front')}}" rel="nofollow"><i class="fas fa-home mr-10"></i>Home</a>
                     <span></span> <a href="shop-grid-right.html"> Mens T-Shirt </a> <span></span> EYEBOGLER Regular Fit Men's
                     Cotton T-Shirt
                 </div>
@@ -55,7 +55,7 @@
                                         </div>
                                         <ul class="pro-code">
                                             <li>Product Code : <span class="text-black">T285HS</span></li>
-                                            <li>Categories : <span class="text-black">{{ $announcement->category }}</span>
+                                            <li>Subcategory : <span class="text-black">{{ $announcement->category->title }}</span>
                                             </li>
                                         </ul>
                                         <div class="rating d-inline-block mb-3">

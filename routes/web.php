@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SupCategoryController;
 use App\Http\Controllers\User\AnnouncementController as UserAnnouncementController;
-use App\Http\User\Controllers\AnnouncementController;
+use App\Http\Controllers\AnnouncementController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -58,11 +58,11 @@ Route::get('/account', function () {
 Route::get('/ad/{announcement}' , [UserAnnouncementController::class , 'show'])->name('ad-show');
 
 Route::group(['middleware' => 'auth'], function () {
-    
+
     Route::get('/admin', function () {
         return view('admin.dashboard');
     })->name('admin');
-    
+
     Route::resource('/users', \App\Http\Controllers\UsersController::class);
     Route::resource('/roles', \App\Http\Controllers\RoleController::class);
     Route::resource('/permissions', \App\Http\Controllers\PermissionController::class);
@@ -70,6 +70,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('announcements', [\App\Http\Controllers\AnnouncementController::class, 'store'])->name('announcements.store');
     Route::resource('categories', CategoryController::class);
     Route::resource('supcategories', SupCategoryController::class);
-    
+
 });
 

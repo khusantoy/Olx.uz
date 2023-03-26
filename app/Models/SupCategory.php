@@ -20,5 +20,9 @@ class SupCategory extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function announcements()
+    {
+        return $this->belongsTo(Announcement::class);
+    }
 
 }

@@ -9,7 +9,7 @@ use willvincent\Rateable\Rateable;
 class Announcement extends Model
 {
     use HasFactory,Rateable;
-    
+
 
     protected $fillable = [
         'title',
@@ -27,7 +27,7 @@ class Announcement extends Model
     }
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(SupCategory::class);
     }
     public function images()
     {
