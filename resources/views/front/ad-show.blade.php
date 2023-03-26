@@ -23,40 +23,22 @@
                                         <!-- MAIN SLIDES -->
                                         <div class="position-relative">
                                             <div class="product-image-slider">
-                                                <figure class="border-radius-7">
-                                                    @php
-                                                        $name = '';
-                                                        if (!count($announcement->images) == 0) {
-                                                            $name = $announcement->images[0]->name;
-                                                        }
-                                                    @endphp
-                                                    <img src="{{ asset('storage/' . $name) }}" alt="">
-                                                    @php
-                                                        $name = '';
-                                                    @endphp
-                                                </figure>
-                                                <figure class="border-radius-7">
-                                                    <img src="assets/img/shop/product-big-2.jpg" alt="product image" />
-                                                </figure>
-                                                <figure class="border-radius-7">
-                                                    <img src="assets/img/shop/product-big-1.jpg" alt="product image" />
-                                                </figure>
-                                                <figure class="border-radius-7">
-                                                    <img src="assets/img/shop/product-big-2.jpg" alt="product image" />
-                                                </figure>
-                                                <figure class="border-radius-7">
-                                                    <img src="assets/img/shop/product-big-1.jpg" alt="product image" />
-                                                </figure>
+                                                @foreach ($announcement->images as $image)
+                                                    <figure class="border-radius-7">
+                                                        <img src='{{ asset("storage/$image") }}' alt="product image" />
+                                                    </figure>
+                                                @endforeach
+
                                             </div>
                                             <span class="zoom-icon"><i class="feather-maximize-2"></i></span>
                                         </div>
                                         <!-- THUMBNAILS -->
                                         <div class="slider-nav-thumbnails">
-                                            <div><img src="assets/img/shop/product-big-1.jpg" alt="product image" /></div>
-                                            <div><img src="assets/img/shop/product-big-2.jpg" alt="product image" /></div>
-                                            <div><img src="assets/img/shop/product-big-1.jpg" alt="product image" /></div>
-                                            <div><img src="assets/img/shop/product-big-2.jpg" alt="product image" /></div>
-                                            <div><img src="assets/img/shop/product-big-1.jpg" alt="product image" /></div>
+                                            @foreach ($announcement->images as $image)
+                                                <div>
+                                                    <img src='{{ asset("storage/$image") }}' alt="product image" />
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <!-- End Gallery -->
@@ -134,21 +116,7 @@
                                         <div class="tab-pane fade show active" id="Description">
                                             <div class="">
                                                 <ul class="pro-desc">
-                                                    <li>Product Dimensions : 65 x 46 x 1 cm; 240 Grams
-                                                    <li>Date First Available : 31 October 2020</li>
-                                                    <li>Manufacturer : Seven Rocks International</li>
-                                                    <li>ASIN : B08MCZMNDW</li>
-                                                    <li>Item model number : T285HS</li>
-                                                    <li>Department : Men</li>
-                                                    <li>Manufacturer : Seven Rocks International, Seven Rocks International,
-                                                        Cheema Chowk, Ludhiana</li>
-                                                    <li>Packer : Seven Rocks International</li>
-                                                    <li>Importer : Seven Rocks International</li>
-                                                    <li>Item Weight : 240 g</li>
-                                                    <li>Item Dimensions LxWxH : 65 x 46 x 1 Centimeters</li>
-                                                    <li>Net Quantity : 1 Piece</li>
-                                                    <li>Included Components : T-Shirt</li>
-                                                    <li>Generic Name : T-Shirt</li>
+                                                    {{ $announcement->description }}
                                                 </ul>
                                             </div>
                                         </div>
@@ -184,6 +152,7 @@
                                                     id="carousel-4-columns-arrows"></div>
                                                 <div class="carousel-4-columns carousel-arrow-center"
                                                     id="carousel-4-columns">
+                                                    {{-- here foreach for rendering ads --}}
                                                     <div class="product-card wow animate__animated animate__fadeIn"
                                                         data-wow-delay=".1s">
                                                         <div class="product-img-col">
@@ -236,209 +205,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!--End product Wrap-->
-                                                    <div class="product-card wow animate__animated animate__fadeIn"
-                                                        data-wow-delay=".1s">
-                                                        <div class="product-img-col">
-                                                            <div class="product-img product-img-zoom">
-                                                                <a href="view-product.html">
-                                                                    <img class="default-img"
-                                                                        src="assets/img/shop/product-10.jpg"
-                                                                        alt="" />
-                                                                    <img class="hover-img"
-                                                                        src="assets/img/shop/product-10.jpg"
-                                                                        alt="" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="product-inner-details">
-                                                                <a aria-label="Quick view" class="product-btn"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#quickViewModal"><i
-                                                                        class="fi-rs-eye"></i></a>
-                                                                <a aria-label="Search" class="product-btn"
-                                                                    href="#"><i class="fi-rs-search"></i></a>
-                                                                <a aria-label="Add To Wishlist" class="product-btn"
-                                                                    href="wishlist.html"><i class="fi-rs-heart"></i></a>
-                                                                <a href="cart.html" aria-label="Cart"
-                                                                    class="product-btn"><i
-                                                                        class="fi-rs-shopping-cart"></i></a>
-                                                            </div>
-                                                            <div class="product-badge">
-                                                                <span class="best">Sale</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-content">
-                                                            <h2><a href="view-product.html">Shade Tshirt for Men</a></h2>
-                                                            <div class="product-card-bottom mt-0">
-                                                                <div class="product-price">
-                                                                    <span>$ 350.00</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-card-bottom">
-                                                                <div class="rating d-inline-block">
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star-half-alt"></i>
-                                                                    <i class="far fa-star"></i>
-                                                                    <span class="ml-5"> (3.5)</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--End product Wrap-->
-                                                    <div class="product-card wow animate__animated animate__fadeIn"
-                                                        data-wow-delay=".1s">
-                                                        <div class="product-img-col">
-                                                            <div class="product-img product-img-zoom">
-                                                                <a href="view-product.html">
-                                                                    <img class="default-img"
-                                                                        src="assets/img/shop/product-12.jpg"
-                                                                        alt="" />
-                                                                    <img class="hover-img"
-                                                                        src="assets/img/shop/product-12.jpg"
-                                                                        alt="" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="product-inner-details">
-                                                                <a aria-label="Quick view" class="product-btn"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#quickViewModal"><i
-                                                                        class="fi-rs-eye"></i></a>
-                                                                <a aria-label="Search" class="product-btn"
-                                                                    href="#"><i class="fi-rs-search"></i></a>
-                                                                <a aria-label="Add To Wishlist" class="product-btn"
-                                                                    href="wishlist.html"><i class="fi-rs-heart"></i></a>
-                                                                <a href="cart.html" aria-label="Cart"
-                                                                    class="product-btn"><i
-                                                                        class="fi-rs-shopping-cart"></i></a>
-                                                            </div>
-                                                            <div class="product-badge">
-                                                                <span class="best">Sale</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-content">
-                                                            <h2><a href="view-product.html">Tshirt for Men</a></h2>
-                                                            <div class="product-card-bottom mt-0">
-                                                                <div class="product-price">
-                                                                    <span>$ 350.00</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-card-bottom">
-                                                                <div class="rating d-inline-block">
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star-half-alt"></i>
-                                                                    <i class="far fa-star"></i>
-                                                                    <span class="ml-5"> (3.5)</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--End product Wrap-->
-                                                    <div class="product-card wow animate__animated animate__fadeIn"
-                                                        data-wow-delay=".1s">
-                                                        <div class="product-img-col">
-                                                            <div class="product-img product-img-zoom">
-                                                                <a href="view-product.html">
-                                                                    <img class="default-img"
-                                                                        src="assets/img/shop/product-13.jpg"
-                                                                        alt="" />
-                                                                    <img class="hover-img"
-                                                                        src="assets/img/shop/product-13.jpg"
-                                                                        alt="" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="product-inner-details">
-                                                                <a aria-label="Quick view" class="product-btn"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#quickViewModal"><i
-                                                                        class="fi-rs-eye"></i></a>
-                                                                <a aria-label="Search" class="product-btn"
-                                                                    href="#"><i class="fi-rs-search"></i></a>
-                                                                <a aria-label="Add To Wishlist" class="product-btn"
-                                                                    href="wishlist.html"><i class="fi-rs-heart"></i></a>
-                                                                <a href="cart.html" aria-label="Cart"
-                                                                    class="product-btn"><i
-                                                                        class="fi-rs-shopping-cart"></i></a>
-                                                            </div>
-                                                            <div class="product-badge">
-                                                                <span class="best">Sale</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-content">
-                                                            <h2><a href="view-product.html">Cotton Tshirt for Men.</a></h2>
-                                                            <div class="product-card-bottom mt-0">
-                                                                <div class="product-price">
-                                                                    <span>$ 350.00</span>
-                                                                    <span class="old-price">$ 450.00</span>
-                                                                    <span class="discount-tag">-72%</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-card-bottom">
-                                                                <div class="rating d-inline-block">
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star-half-alt"></i>
-                                                                    <i class="far fa-star"></i>
-                                                                    <span class="ml-5"> (3.5)</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--End product Wrap-->
-                                                    <div class="product-card wow animate__animated animate__fadeIn"
-                                                        data-wow-delay=".1s">
-                                                        <div class="product-img-col">
-                                                            <div class="product-img product-img-zoom">
-                                                                <a href="view-product.html">
-                                                                    <img class="default-img"
-                                                                        src="assets/img/shop/product-14.jpg"
-                                                                        alt="" />
-                                                                    <img class="hover-img"
-                                                                        src="assets/img/shop/product-14.jpg"
-                                                                        alt="" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="product-inner-details">
-                                                                <a aria-label="Quick view" class="product-btn"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#quickViewModal"><i
-                                                                        class="fi-rs-eye"></i></a>
-                                                                <a aria-label="Search" class="product-btn"
-                                                                    href="#"><i class="fi-rs-search"></i></a>
-                                                                <a aria-label="Add To Wishlist" class="product-btn"
-                                                                    href="wishlist.html"><i class="fi-rs-heart"></i></a>
-                                                                <a href="cart.html" aria-label="Cart"
-                                                                    class="product-btn"><i
-                                                                        class="fi-rs-shopping-cart"></i></a>
-                                                            </div>
-                                                            <div class="product-badge">
-                                                                <span class="best">Sale</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-content">
-                                                            <h2><a href="view-product.html">Rounded T-Shirt</a></h2>
-                                                            <div class="product-card-bottom mt-0">
-                                                                <div class="product-price">
-                                                                    <span>$ 350.00</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-card-bottom">
-                                                                <div class="rating d-inline-block">
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star-half-alt"></i>
-                                                                    <i class="far fa-star"></i>
-                                                                    <span class="ml-5"> (3.5)</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--End product Wrap-->
                                                 </div>
                                             </div>
                                         </div>

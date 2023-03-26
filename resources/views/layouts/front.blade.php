@@ -58,7 +58,7 @@
                     <div class="col-xl-3 col-lg-4">
                         <div class="header-details">
                             <div class="header-inner">
-                                @if (Auth::user())
+                                {{-- @if (Auth::user()) --}}
                                     <div class="header-inner-icon">
                                         <a href="{{ route('front.wishlist') }}" class="d-flex align-items-center">
                                             <span><img src="assets/img/icons/icon-wishlist.svg" alt=""></span>
@@ -83,11 +83,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    @else
-                                        <a href="{{ route('login') }}" class="text-danger h3">Login</a>
+                                    {{-- @else --}}
+                                        {{-- <a href="{{ route('login') }}" class="text-danger h3">Login</a> --}}
 
                                     </div>
-                                @endif
+                                {{-- @endif --}}
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
 
                     <div>
                         <!-- Modal -->
-                        @if (Auth::check())
+                        @if (Auth::user())
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#exampleModalCenter">
                                 E'lon berish
