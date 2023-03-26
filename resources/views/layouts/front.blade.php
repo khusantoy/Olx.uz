@@ -114,7 +114,7 @@
                             </button>
                         @else
                             <button class="btn btn-primary">
-                                <a href="{{ route('login') }}" class="text-white">E'lon berish uchun tizimga kirish</a>
+                                <a href="{{ route('login5') }}" class="text-white">E'lon berish uchun tizimga kirish</a>
                             </button>
                         @endif
 

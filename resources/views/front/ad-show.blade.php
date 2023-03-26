@@ -25,7 +25,7 @@
                                             <div class="product-image-slider">
                                                 @foreach ($announcement->images as $image)
                                                     <figure class="border-radius-7">
-                                                        <img src='{{ asset("storage/$image") }}' alt="product image" />
+                                                        <img src='{{ asset("storage/$image->name") }}' alt="product image" />
                                                     </figure>
                                                 @endforeach
 
@@ -36,7 +36,7 @@
                                         <div class="slider-nav-thumbnails">
                                             @foreach ($announcement->images as $image)
                                                 <div>
-                                                    <img src='{{ asset("storage/$image") }}' alt="product image" />
+                                                    <img src='{{ asset("storage/$image->name") }}' alt="product image" />
                                                 </div>
                                             @endforeach
                                         </div>

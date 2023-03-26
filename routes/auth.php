@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/login', function () {
+Route::get('/login5', function () {
     return view('auth.login');
- })->name('login');
+})->name('login5');
 
 Route::get('/register', function () {
     return view('auth.register');
@@ -15,6 +15,6 @@ Route::get('/register', function () {
 Route::get('/logoutfront', function () {
     Auth::logout();
     return view('auth.login');
-})->name('logoutfront');
+})->name('logout.front');
 
 Route::redirect('/register' , '/login');

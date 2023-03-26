@@ -26,6 +26,10 @@ Route::get('/', function () {
     return view('front.index', compact('categories'));
 })->name('front');
 
+@include('auth.php');
+
+
+
 Route::get('/wishlist', function () {
     return view('front.wishlist');
 })->name('front.wishlist');
@@ -33,14 +37,6 @@ Route::get('/wishlist', function () {
 Route::get('/cart', function () {
     return view('front.cart');
 })->name('front.cart');
-
-@include('auth.php');
-
-
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
-
 
 Route::get('/view-product', function () {
     return view('front.view-product');
@@ -62,11 +58,11 @@ Route::get('/account', function () {
 Route::get('/ad/{announcement}' , [UserAnnouncementController::class , 'show'])->name('ad-show');
 
 Route::group(['middleware' => 'auth'], function () {
-
+    
     Route::get('/admin', function () {
         return view('admin.dashboard');
     })->name('admin');
-
+    
     Route::resource('/users', \App\Http\Controllers\UsersController::class);
     Route::resource('/roles', \App\Http\Controllers\RoleController::class);
     Route::resource('/permissions', \App\Http\Controllers\PermissionController::class);
@@ -74,6 +70,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('announcements', [\App\Http\Controllers\AnnouncementController::class, 'store'])->name('announcements.store');
     Route::resource('categories', CategoryController::class);
     Route::resource('supcategories', SupCategoryController::class);
-
+    
 });
 

@@ -20,7 +20,7 @@
                         </a>
                     </div>
                     <div class="product-inner-details">
-                        <a aria-label="Quick view" class="product-btn"  wire:click="showElon({{$announcement->id}})"  data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                        <a aria-label="Quick view" class="product-btn"  href="{{ route('ad-show', $announcement) }}">
                             <i class="fi-rs-eye"></i>
                         </a>
                         <a aria-label="Search" class="product-btn" href="#">
