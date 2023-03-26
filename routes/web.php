@@ -34,6 +34,13 @@ Route::get('/cart', function () {
     return view('front.cart');
 })->name('front.cart');
 
+@include('auth.php');
+
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
 
 Route::get('/view-product', function () {
     return view('front.view-product');
@@ -69,7 +76,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('supcategories', SupCategoryController::class);
 
 });
-
-
-@include('auth.php');
 
