@@ -59,7 +59,7 @@ class AnnouncementController extends Controller
             $image_name = uniqid() . $file->getClientOriginalName();
             $i= new Image(['name'=>$image_name]);
             $elon->images()->save($i);
-            $file->move(public_path('images'), $image_name);
+            $file->move(public_path('storage'), $image_name);
        }
 
 
@@ -118,10 +118,10 @@ class AnnouncementController extends Controller
             $file = $image;
             $image_name = uniqid() . $file->getClientOriginalName();
             $i= new Image(['name'=>$image_name]);
-            $elon->images()->save($i);
-            $file->move(public_path('images'), $image_name);
-        }
 
+            $elon->images()->save($i);
+            $file->move(public_path('storage'), $image_name);
+        }
            }
 
         return redirect()->route('announcements.index');

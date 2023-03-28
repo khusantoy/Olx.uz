@@ -4,8 +4,12 @@ use App\Http\Controllers\AddRatingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SupCategoryController;
 use App\Http\Controllers\User\AnnouncementController as UserAnnouncementController;
+
 use App\Http\User\Controllers\AnnouncementController;
 use App\Models\Announcement;
+
+use App\Http\Controllers\AnnouncementController;
+
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -72,7 +76,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('announcements', [\App\Http\Controllers\AnnouncementController::class, 'store'])->name('announcements.store');
     Route::resource('categories', CategoryController::class);
     Route::resource('supcategories', SupCategoryController::class);
-    
+
     Route::get('/rate/{announcement}', [AddRatingController::class , 'index'])->name('addRate');
+
+
+
 });
 

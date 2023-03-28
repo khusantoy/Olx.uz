@@ -28,7 +28,7 @@
                             </div>
                                 <div class="mb-2 w-50">
                                    @foreach($elon->images as $image)
-                                       <img src="{{asset('images/'.$image->name)}}" width="90" height="50" class="img-fluid" >
+                                       <img src="{{asset('storage/'.$image->name)}}" width="90" height="50" class="img-fluid" >
                                    @endforeach
                                 </div>
                             <div class="mb-2 w-50">

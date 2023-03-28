@@ -19,7 +19,7 @@ class SupCategorySeeder extends Seeder
         $count=1;
         $elonlar_data = [];
         foreach (Category::all() as  $category) {
-            for ($i = 0; $i < 15; $i++) {
+            for ($i = 0; $i < 2; $i++) {
                 $data[] = [
                     'title' => 'title  Category' . $category->id,
                     'image' => '',
@@ -27,7 +27,7 @@ class SupCategorySeeder extends Seeder
                 ];
 
 
-                for ($j = 0; $j < 10; $j++) {
+                for ($j = 0; $j < 1; $j++) {
                     $elonlar_data[] = [
                         'title'=>"elon title sub_id".$count,
                         'description'=>"elon description sub_id".$count,

@@ -11,7 +11,7 @@ use Livewire\WithFileUploads;
 class CreateAd extends Component
 {
     use WithFileUploads;
-    
+
     public $title;
     public $description;
     public $image='';
@@ -28,7 +28,7 @@ class CreateAd extends Component
 
     public function createAd()
     {
-       
+
         //  $this->description,
         // $this->image,
         // $this->type_id,
@@ -39,8 +39,8 @@ class CreateAd extends Component
         //     'image' => 'image|max:50024', // 1MB Max
         // ]);
 
-       
- 
+
+
 
       $elon=  Announcement::create([
             'title'=>$this->title,
@@ -56,14 +56,13 @@ class CreateAd extends Component
         if($this->image!=''){
             $massiv=$this->image;
             foreach ($massiv as $i) {
-                
-                
+
+
                $i->store('public');
-              
                $elon->images()->create([
                 'name'=>$i->hashName()]
                );
-              
+
                unlink($i->getRealPath());
             }
         }
