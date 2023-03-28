@@ -25,7 +25,8 @@
                                             <div class="product-image-slider">
                                                 @foreach ($announcement->images as $image)
                                                     <figure class="border-radius-7">
-                                                        <img src='{{ asset("storage/$image->name") }}' alt="product image" />
+                                                        <img src='{{ asset("storage/$image->name") }}'
+                                                            alt="product image" />
                                                     </figure>
                                                 @endforeach
 
@@ -59,12 +60,17 @@
                                             </li>
                                         </ul>
                                         <div class="rating d-inline-block mb-3">
+                                            {{-- @dd($announcement->ratings) --}}
+                                            @if (!empty($announcement->ratings))
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star-half-alt"></i>
                                             <i class="far fa-star"></i>
-                                            <span class="ml-5"> (3.5)</span>
+                                                <span class="ml-5"> {{ $announcement->ratings->rating }}</span>
+                                            @else
+                                                <span class="ml-5"> Rating yo'q</span>
+                                            @endif
                                         </div>
                                         <p class="in-stock text-brand">39 in Stock</p>
                                         <div class="detail-extralink">
@@ -84,8 +90,8 @@
                                         <div class="product-extra-link2">
                                             <button type="submit" class="button button-add-to-cart me-3"><i
                                                     class="fi-rs-shopping-cart"></i>Add to cart</button>
-                                            <a aria-label="Add To Wishlist" class="button btn-wishlist"
-                                                href="wishlist.html"><i class="fi-rs-heart"></i>Like</a>
+                                            <a href="{{ route('addRate', $announcement) }}" class="button btn-wishlist"><i
+                                                    class="fi-rs-heart"></i>Like</a>
                                         </div>
                                         <div class="pro-share">
                                             <ul>
@@ -200,7 +206,7 @@
                                                                     <i class="fas fa-star"></i>
                                                                     <i class="fas fa-star-half-alt"></i>
                                                                     <i class="far fa-star"></i>
-                                                                    <span class="ml-5"> (3.5)</span>
+                                                                    <span class="ml-5"> ()</span>
                                                                 </div>
                                                             </div>
                                                         </div>
