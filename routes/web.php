@@ -5,7 +5,6 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SupCategoryController;
 use App\Http\Controllers\User\AnnouncementController as UserAnnouncementController;
 
-use App\Http\User\Controllers\AnnouncementController;
 use App\Models\Announcement;
 
 use App\Http\Controllers\AnnouncementController;

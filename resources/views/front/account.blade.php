@@ -68,7 +68,7 @@
                                             </div>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('logoutfront') }}"><i
+                                            <a class="nav-link" href="{{ route('logout.front') }}"><i
                                                     class="fi-rs-sign-out mr-10"></i>Logout</a>
                                         </li>
                                     </ul>
