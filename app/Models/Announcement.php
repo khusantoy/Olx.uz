@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Overtrue\LaravelLike\Traits\Likeable;
+
+use Overtrue\LaravelFollow\Traits\Followable;
 use willvincent\Rateable\Rateable;
 
 class Announcement extends Model
 {
-    use HasFactory,Rateable,Likeable;
+    use HasFactory,Rateable,Followable;
 
 
     protected $fillable = [

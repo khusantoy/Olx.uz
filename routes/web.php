@@ -23,6 +23,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+Route::get('/rating', function () {
+
+
+    $elon = Announcement::find(1);
+
+    dd($elon->averageRating);
+
+
+});
 Route::get('/', function () {
 
     $categories = Category::with(['supCategories' => function ($query) {

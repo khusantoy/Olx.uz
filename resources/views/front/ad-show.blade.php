@@ -1,6 +1,73 @@
 @extends('layouts.front')
 
 @section('content')
+
+    <style>
+        .rating-stars-container {
+        text-align: center;
+        }
+
+        .rating-stars {
+        display: inline-block;
+        margin: 20px;
+        }
+        .rating-star {
+        font-size: 44px;
+        cursor: pointer
+        }
+
+        .fa-star {
+        color: #00A8CC;
+        }
+
+
+        .bottom-message {
+        font-size: 0.85em;
+        }
+
+        .sr-navigator-container.visible-sm-block {
+        margin-top: 30px;
+        }
+
+        .notes-container {
+        margin: auto;
+        margin-top: 20px;
+        width: 50%;
+        }
+        #myNotesView {
+        display: block;
+        }
+
+        .notes-buttons {
+        margin-top: 10px;
+        }
+
+        @media (max-width: 767px) {
+        .notes-container {
+        width: 100%;
+        }
+        }
+
+        .btn-ls-blue {
+        background-color: #4984a3;
+        border: none;
+        -o-transition: background-color 0.215s;
+        -moz-transition: background-color 0.215s;
+        -webkit-transition: background-color 0.215s;
+        transition: background-color 0.215s;
+        }
+
+        .btn-ls-blue:hover,
+        .btn-ls-blue:active,
+        .btn-ls-blue:focus,
+        .btn-ls-blue.active {
+        background-color: #00A8CC;
+        }
+
+        .hide {
+        display: none;
+        }
+    </style>
     <!-- Main -->
     <main class="main">
         <div class="container">
@@ -90,7 +157,7 @@
                                             </div>
                                         </div>
 
-                                        @livewire('like-livewire',['elon'=>$announcement])
+                                        @livewire('like',['elon'=>$announcement])
                                         <div class="pro-share">
                                             <ul>
                                                 <li class="me-2"><span>Share :</span></li>
@@ -102,6 +169,37 @@
                                         </div>
                                     </div>
                                     <!-- Detail Info -->
+
+
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        Launch demo modal
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container">
+                                                        <span id="rateMe1"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="product-info">
@@ -225,4 +323,23 @@
         </div>
     </main>
     <!-- /Main -->
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

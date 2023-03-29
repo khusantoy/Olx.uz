@@ -182,6 +182,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,
+        Overtrue\LaravelFollow\FollowServiceProvider::class,
+
+
         /*
          * Package Service Providers...
          */
