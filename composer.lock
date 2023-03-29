@@ -2277,17 +2277,17 @@
             "time": "2023-02-08T01:06:31+00:00"
         },
         {
-            "name": "overtrue/laravel-follow",
-            "version": "5.1.0",
+            "name": "overtrue/laravel-like",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/overtrue/laravel-follow.git",
-                "reference": "47482cb257f0ebe6842d1f7f4ef0770294e8c74a"
+                "url": "https://github.com/overtrue/laravel-like.git",
+                "reference": "5ae47320430c861491459c570cafebf181f60b63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/laravel-follow/zipball/47482cb257f0ebe6842d1f7f4ef0770294e8c74a",
-                "reference": "47482cb257f0ebe6842d1f7f4ef0770294e8c74a",
+                "url": "https://api.github.com/repos/overtrue/laravel-like/zipball/5ae47320430c861491459c570cafebf181f60b63",
+                "reference": "5ae47320430c861491459c570cafebf181f60b63",
                 "shasum": ""
             },
             "require": {
@@ -2295,17 +2295,17 @@
             },
             "require-dev": {
                 "brainmaestro/composer-git-hooks": "dev-master",
-                "friendsofphp/php-cs-fixer": "^3.8",
-                "laravel/pint": "^1.5",
-                "mockery/mockery": "^1.5",
+                "friendsofphp/php-cs-fixer": "^3.0.0",
+                "laravel/pint": "^1.2",
+                "mockery/mockery": "^1.4",
                 "orchestra/testbench": "^8.0",
-                "phpunit/phpunit": "^10.0"
+                "phpunit/phpunit": "^10.0.7"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Overtrue\\LaravelFollow\\FollowServiceProvider"
+                        "Overtrue\\LaravelLike\\LikeServiceProvider"
                     ]
                 },
                 "hooks": {
@@ -2313,15 +2313,12 @@
                         "composer fix-style",
                         "composer test"
                     ],
-                    "pre-push": [
-                        "composer test",
-                        "composer check-style"
-                    ]
+                    "post-merge": "composer install"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Overtrue\\LaravelFollow\\": "src"
+                    "Overtrue\\LaravelLike\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2334,10 +2331,10 @@
                     "email": "anzhengchao@gmail.com"
                 }
             ],
-            "description": "User follow unfollow system for Laravel.",
+            "description": "👍 User-like features for Laravel Application.",
             "support": {
-                "issues": "https://github.com/overtrue/laravel-follow/issues",
-                "source": "https://github.com/overtrue/laravel-follow/tree/5.1.0"
+                "issues": "https://github.com/overtrue/laravel-like/issues",
+                "source": "https://github.com/overtrue/laravel-like/tree/5.1.1"
             },
             "funding": [
                 {
@@ -2345,7 +2342,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-15T06:15:49+00:00"
+            "time": "2023-02-17T00:15:59+00:00"
         },
         {
             "name": "phpoption/phpoption",

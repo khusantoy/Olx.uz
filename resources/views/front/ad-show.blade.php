@@ -131,11 +131,19 @@
                                         <div class="rating d-inline-block mb-3">
                                             {{-- @dd($announcement->ratings) --}}
                                             @if (!empty($announcement->ratings[0]))
+<<<<<<< HEAD
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <i class="far fa-star"></i>
+=======
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star-half-alt"></i>
                                                 <i class="far fa-star"></i>
+>>>>>>> 6e69402144b98b575883ae55cb706974ab056e8c
                                                 <span class="ml-5"> {{ $announcement->ratings[0]->rating }}</span>
                                             @else
                                                 <span class="ml-5"> Rating yo'q</span>
