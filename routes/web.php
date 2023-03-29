@@ -42,7 +42,10 @@ Route::get('/', function () {
 })->name('front');
 
 Route::get('/wishlist', function () {
-    return view('front.wishlist');
+    $categories = Category::with(['supCategories' => function ($query) {
+        return $query->whereNot('title', "like", "%10%");
+    }])->get();
+    return view('front.wishlist', compact('categories'));
 })->name('front.wishlist');
 
 Route::get('/cart', function () {
