@@ -9,11 +9,11 @@
                         <a href="{{ route('front.view-product') }}">
                             @php
                                 $name='';
-                            if (!count($announcement->images)==0){
+                            if (count($announcement->images)){
                             $name=$announcement->images[0]->name;
                             }
                             @endphp
-                                <img src="{{asset('storage/'.$name)}}" alt="">
+                            <img src="{{asset('storage/'.$name)}}" alt="">
                             @php
                                 $name='';
                             @endphp

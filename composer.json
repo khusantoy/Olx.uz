@@ -11,7 +11,11 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.12",
+<<<<<<< HEAD
         "overtrue/laravel-like": "*",
+=======
+        "overtrue/laravel-like": "^5.1",
+>>>>>>> 6e69402144b98b575883ae55cb706974ab056e8c
         "willvincent/laravel-rateable": "^3.1"
     },
     "require-dev": {

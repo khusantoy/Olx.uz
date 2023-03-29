@@ -7,7 +7,6 @@ use App\Http\Controllers\User\AnnouncementController as UserAnnouncementControll
 
 use App\Models\Announcement;
 
-use App\Http\Controllers\AnnouncementController;
 
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -31,10 +30,6 @@ Route::get('/', function () {
     return view('front.index', compact('categories'));
 })->name('front');
 
-@include('auth.php');
-
-
-
 Route::get('/wishlist', function () {
     return view('front.wishlist');
 })->name('front.wishlist');
@@ -42,6 +37,14 @@ Route::get('/wishlist', function () {
 Route::get('/cart', function () {
     return view('front.cart');
 })->name('front.cart');
+
+@include('auth.php');
+
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
 
 Route::get('/view-product', function () {
     return view('front.view-product');

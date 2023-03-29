@@ -7,7 +7,8 @@
             <div class="page-header breadcrumb-wrap">
                 <div class="breadcrumb">
                     <a href="{{route('front')}}" rel="nofollow"><i class="fas fa-home mr-10"></i>Home</a>
-                    <span></span> <a href="shop-grid-right.html"> Mens T-Shirt </a> <span></span> EYEBOGLER Regular Fit Men's
+                    <span></span> <a href="shop-grid-right.html"> Mens T-Shirt </a> <span></span> EYEBOGLER Regular Fit
+                    Men's
                     Cotton T-Shirt
                 </div>
             </div>
@@ -26,7 +27,7 @@
                                                 @foreach ($announcement->images as $image)
                                                     <figure class="border-radius-7">
                                                         <img src='{{ asset("storage/$image->name") }}'
-                                                            alt="product image" />
+                                                             alt="product image"/>
                                                     </figure>
                                                 @endforeach
 
@@ -37,7 +38,7 @@
                                         <div class="slider-nav-thumbnails">
                                             @foreach ($announcement->images as $image)
                                                 <div>
-                                                    <img src='{{ asset("storage/$image->name") }}' alt="product image" />
+                                                    <img src='{{ asset("storage/$image->name") }}' alt="product image"/>
                                                 </div>
                                             @endforeach
                                         </div>
@@ -56,17 +57,26 @@
                                         </div>
                                         <ul class="pro-code">
                                             <li>Product Code : <span class="text-black">T285HS</span></li>
-                                            <li>Subcategory : <span class="text-black">{{ $announcement->category->title }}</span>
+                                            <li>Subcategory : <span
+                                                    class="text-black">{{ $announcement->category->title }}</span>
                                             </li>
                                         </ul>
                                         <div class="rating d-inline-block mb-3">
                                             {{-- @dd($announcement->ratings) --}}
                                             @if (!empty($announcement->ratings[0]))
+<<<<<<< HEAD
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star-half-alt"></i>
                                             <i class="far fa-star"></i>
+=======
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+>>>>>>> 6e69402144b98b575883ae55cb706974ab056e8c
                                                 <span class="ml-5"> {{ $announcement->ratings[0]->rating }}</span>
                                             @else
                                                 <span class="ml-5"> Rating yo'q</span>
@@ -87,12 +97,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="product-extra-link2">
-                                            <button type="submit" class="button button-add-to-cart me-3"><i
-                                                    class="fi-rs-shopping-cart"></i>Add to cart</button>
-                                            <a href="{{ route('addRate', $announcement) }}" class="button btn-wishlist"><i
-                                                    class="fi-rs-heart"></i>Like</a>
-                                        </div>
+
+                                        @livewire('like-livewire',['elon'=>$announcement])
                                         <div class="pro-share">
                                             <ul>
                                                 <li class="me-2"><span>Share :</span></li>
@@ -111,11 +117,11 @@
                                     <ul class="nav nav-tabs text-uppercase">
                                         <li class="nav-item">
                                             <a class="nav-link active" id="Description-tab" data-bs-toggle="tab"
-                                                href="#Description">Description</a>
+                                               href="#Description">Description</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab"
-                                                href="#Specification">Specification</a>
+                                               href="#Specification">Specification</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content shop_info_tab entry-main-content">
@@ -131,7 +137,8 @@
                                                 <li>Item model number : T285HS</li>
                                                 <li>Department : Men</li>
                                                 <li>Manufacturer : Seven Rocks International, Seven Rocks International,
-                                                    Cheema Chowk, Ludhiana</li>
+                                                    Cheema Chowk, Ludhiana
+                                                </li>
                                                 <li>Packer : Seven Rocks International</li>
                                                 <li>Importer : Seven Rocks International</li>
                                                 <li>Item Weight : 240 g</li>
@@ -155,34 +162,34 @@
                                         <div class="col-xl-12">
                                             <div class="feature-product-slider arrow-center position-relative">
                                                 <div class="slider-arrow slider-arrow-two carousel-4-columns-arrow"
-                                                    id="carousel-4-columns-arrows"></div>
+                                                     id="carousel-4-columns-arrows"></div>
                                                 <div class="carousel-4-columns carousel-arrow-center"
-                                                    id="carousel-4-columns">
+                                                     id="carousel-4-columns">
                                                     {{-- here foreach for rendering ads --}}
                                                     <div class="product-card wow animate__animated animate__fadeIn"
-                                                        data-wow-delay=".1s">
+                                                         data-wow-delay=".1s">
                                                         <div class="product-img-col">
                                                             <div class="product-img product-img-zoom">
                                                                 <a href="view-product.html">
                                                                     <img class="default-img"
-                                                                        src="assets/img/shop/product-11.jpg"
-                                                                        alt="" />
+                                                                         src="assets/img/shop/product-11.jpg"
+                                                                         alt=""/>
                                                                     <img class="hover-img"
-                                                                        src="assets/img/shop/product-11.jpg"
-                                                                        alt="" />
+                                                                         src="assets/img/shop/product-11.jpg"
+                                                                         alt=""/>
                                                                 </a>
                                                             </div>
                                                             <div class="product-inner-details">
                                                                 <a aria-label="Quick view" class="product-btn"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#quickViewModal"><i
+                                                                   data-bs-toggle="modal"
+                                                                   data-bs-target="#quickViewModal"><i
                                                                         class="fi-rs-eye"></i></a>
                                                                 <a aria-label="Search" class="product-btn"
-                                                                    href="#"><i class="fi-rs-search"></i></a>
+                                                                   href="#"><i class="fi-rs-search"></i></a>
                                                                 <a aria-label="Add To Wishlist" class="product-btn"
-                                                                    href="wishlist.html"><i class="fi-rs-heart"></i></a>
+                                                                   href="wishlist.html"><i class="fi-rs-heart"></i></a>
                                                                 <a href="cart.html" aria-label="Cart"
-                                                                    class="product-btn"><i
+                                                                   class="product-btn"><i
                                                                         class="fi-rs-shopping-cart"></i></a>
                                                             </div>
                                                             <div class="product-badge">
