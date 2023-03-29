@@ -44,7 +44,7 @@
                                             <div id="collapseOne" class="accordion-collapse collapse show"
                                                 aria-labelledby="dashboard-one" data-bs-parent="#accordionExample">
                                                 <ul class="dashboard-sub-link">
-                                                    {{-- <li><a href="{{ route('front.account') }}" class="active">My Profile</a> --}}
+                                                     <li><a href="{{ route('front.account') }}" class="active">My Profile</a>
                                                     </li>
                                                     <li><a href="manage-address.html">Manage address</a></li>
                                                 </ul>
@@ -68,7 +68,7 @@
                                             </div>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('logoutfront') }}"><i
+                                            <a class="nav-link" href="{{ route('logout.front') }}"><i
                                                     class="fi-rs-sign-out mr-10"></i>Logout</a>
                                         </li>
                                     </ul>
