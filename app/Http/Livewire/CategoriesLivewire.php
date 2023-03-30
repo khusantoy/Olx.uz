@@ -10,11 +10,6 @@ class CategoriesLivewire extends Component
     public $categories;
 
 
-
-
-
-
-
     public function mount($categories){
         $this->categories=$categories;
     }

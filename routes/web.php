@@ -9,6 +9,7 @@ use App\Models\Announcement;
 
 
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 
 
 Route::get('/rating', function () {
@@ -42,10 +42,11 @@ Route::get('/', function () {
 })->name('front');
 
 Route::get('/wishlist', function () {
+    $announcements = Announcement::all();
     $categories = Category::with(['supCategories' => function ($query) {
         return $query->whereNot('title', "like", "%10%");
     }])->get();
-    return view('front.wishlist', compact('categories'));
+    return view('front.wishlist', compact('categories','announcements'));
 })->name('front.wishlist');
 
 Route::get('/cart', function () {
@@ -93,8 +94,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('supcategories', SupCategoryController::class);
 
-    Route::get('/rate/{announcement}', [AddRatingController::class , 'index'])->name('addRate');
-
+    Route::get('/rate/{announcement}', [AddRatingController::class, 'index'])->name('addRate');
 
 
 });

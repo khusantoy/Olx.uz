@@ -6,7 +6,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow"><i class="fas fa-home mr-10"></i> Home</a>
+                    <a href="index" rel="nofollow"><i class="fas fa-home mr-10"></i> Home</a>
                     <span></span> Profile
                 </div>
             </div>
@@ -51,14 +51,13 @@
                                             </div>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="orders.html"><i
-                                                    class="fi-rs-shopping-cart mr-10"></i>My Orders</a>
+                                            <a class="nav-link" href="{{ route('front.wishlist') }}"><i class="fi-rs-heart mr-10"></i>Like</a>
                                         </li>
                                         <li class="nav-item" id="dashboard-two">
                                             <a class="nav-link accordion-button" href="#" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseTwo" aria-expanded="true"
                                                 aria-controls="collapseTwo">
-                                                <i class="fi-rs-heart mr-10"></i>My Stuff</a>
+                                                <i class="fi-rs-shopping-cart mr-10"></i>My Stuff</a>
                                             <div id="collapseTwo" class="accordion-collapse collapse"
                                                 aria-labelledby="dashboard-two" data-bs-parent="#accordionExample">
                                                 <ul class="dashboard-sub-link">
@@ -113,7 +112,6 @@
     </main>
 
     <script>
-
         function user(){
            Livewire.emit('user_editing',{{ auth()->user()->id }})
         }
