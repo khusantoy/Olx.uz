@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('view');
             $table->string('price');
 
+            
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 

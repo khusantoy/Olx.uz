@@ -13,11 +13,9 @@
     @livewireStyles
 
     <style>
-
-        .opa{
+        .opa {
             opacity: .1;
         }
-
     </style>
 </head>
 
@@ -36,29 +34,29 @@
                             <ul>
                                 <li>
                                     <a class="language-dropdown-active" href="#">English <i
-                                            class="fi-rs-angle-small-down"></i></a>
-                                    <ul class="language-dropdown">
-                                        <li>
-                                            <a href="#"><img src="assets/img/flags/flag-en.png"
-                                                    alt="">English</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img src="assets/img/flags/flag-uz.png"
-                                                    alt="">O'zbek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><img src="assets/img/flags/flag-ru.png"
-                                                    alt="">Pусский</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                                        class="fi-rs-angle-small-down"></i></a>
+                                        <ul class="language-dropdown">
+                                            <li>
+                                                <a href="#"><img src="assets/img/flags/flag-en.png"
+                                                        alt="">English</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><img src="assets/img/flags/flag-uz.png"
+                                                        alt="">O'zbek</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><img src="assets/img/flags/flag-ru.png"
+                                                        alt="">Pусский</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4">
-                        <div class="header-details">
-                            <div class="header-inner">
-                                {{-- @if (Auth::user()) --}}
+                        <div class="col-xl-3 col-lg-4">
+                            <div class="header-details">
+                                @if (Auth::user())
+                                <div class="header-inner">
                                     <div class="header-inner-icon">
                                         <a href="{{ route('front.wishlist') }}" class="d-flex align-items-center">
                                             <span><img src="assets/img/icons/icon-wishlist.svg" alt=""></span>
@@ -83,14 +81,14 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    {{-- @else --}}
-                                        {{-- <a href="{{ route('login') }}" class="text-danger h3">Login</a> --}}
+                                    @else
+                                        <a href="{{ route('login') }}" class="text-danger h3">Login</a>
 
                                     </div>
-                                {{-- @endif --}}
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -505,7 +503,7 @@
     <script>
         document.addEventListener('qaytadanrender', () => {
 
-               document.getElementById('qaytadanrender').click();
+            document.getElementById('qaytadanrender').click();
 
         })
     </script>

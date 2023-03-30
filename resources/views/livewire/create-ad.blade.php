@@ -49,7 +49,7 @@
                     <label for="image" class="form-label">category</label>
                     <select name="category_id" wire:model="category_id" class="form-control">
                         <option value=""></option>
-                        @foreach ($categories as $key => $category)
+                    @foreach ($categories as $key => $category)
                             <option value="{{ $key }}">{{ $category }}
                             </option>
                         @endforeach
