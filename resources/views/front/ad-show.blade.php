@@ -130,6 +130,7 @@
                                         </ul>
                                         <div class="rating d-inline-block mb-3">
                                             {{-- @dd($announcement->ratings) --}}
+
                                             @if (!empty($announcement->ratings[0]))
 
                                                 <i class="fas fa-star"></i>
@@ -137,9 +138,14 @@
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star-half-alt"></i>
                                                 <i class="far fa-star"></i>
-                                                <span class="ml-5"> {{ $announcement->ratings[0]->rating }}</span>
+
+                                                <span class="ml-5"> {{ $announcement->averageRating  }}</span>
                                             @else
-                                                <span class="ml-5"> Rating yo'q</span>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
                                             @endif
                                         </div>
                                         <p class="in-stock text-brand">39 in Stock</p>
@@ -167,6 +173,16 @@
                                                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                             </ul>
+                                            <ul>
+                                                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    rate
+                                                </button>
+                                            </ul>
                                         </div>
                                     </div>
                                     <!-- Detail Info -->
@@ -174,32 +190,9 @@
 
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                        Launch demo modal
-                                    </button>
+
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container">
-                                                        <span id="rateMe1"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 </div>
                             </div>
@@ -323,6 +316,9 @@
             </div>
         </div>
     </main>
+
+    @livewire('rate-livewire',['elon'=>$announcement])
+
     <!-- /Main -->
     <div class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
