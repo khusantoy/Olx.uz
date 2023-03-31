@@ -42,9 +42,7 @@
                     <h2><a href="{{ route('front.view-product') }}">{{ $announcement->title }}</a></h2>
                     <div class="product-card-bottom mt-0">
                         <div class="product-price">
-                            <span>$ {{ $announcement->price }}</span>
-                            <span class="old-price">$ 450.00</span>
-                            <span class="discount-tag">-72%</span>
+                            <span>{{ $announcement->price }}</span> so'm
                         </div>
                     </div>
                     <div class="product-card-bottom">

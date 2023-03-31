@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class IndexLivewire extends Component
 {
-    public $count=8;
+    public $count=16;
     public $elon=false;
     public $elonlar;
      protected $listeners=[
@@ -22,7 +22,7 @@ class IndexLivewire extends Component
   
     public function category_click($category_id,$test=false){
         if( $test=='test'){
-            $this->count+=8;
+            $this->count+=16;
             $this->elonlar=Announcement::where('category_id',$category_id)
             ->take($this->count)
             ->orderByDesc('id')
