@@ -9,7 +9,7 @@
                             <li class="sub-mega-menu sub-mega-menu-two">
                                 <div class="menu-banner-wrap">
                                     <div class="menu-banner-content">
-                                       <img height="230px" src="uploads/categories/{{$category->image}}">
+                                       <img height="220px" src="uploads/categories/{{$category->image}}">
                                     </div>
                                 </div>
                             </li>

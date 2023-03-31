@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             PermissionsSeeder::class,
             CategorySeeder::class,
             SupCategorySeeder::class,
+            AnnouncementSeeder::class
         ]);
     }
 }

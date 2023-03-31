@@ -16,35 +16,35 @@ class CategorySeeder extends Seeder
         Category::insert([
             [
                 'title'=>"Transport",
-                'image'=>''
+                'image'=>'new-car.png'
             ],
             [
                 'title'=>"Ko'chmas mulk",
-                'image'=>''
+                'image'=>'house.png'
             ],
             [
                 'title'=>"Bolalar dunyosi",
-                'image'=>''
+                'image'=>'toys.png'
             ],
             [
                 'title'=>"Elektronika",
-                'image'=>''
+                'image'=>'gadgets.png'
             ],
             [
                 'title'=>"Kitoblar",
-                'image'=>''
+                'image'=>'book.png'
             ],
             [
                 'title'=>"Hayvonlar",
-                'image'=>''
+                'image'=>'paw.png'
             ],
             [
                 'title'=>"Xizmatlar",
-                'image'=>''
+                'image'=>'customer-service.png'
             ],
             [
                 'title'=>"Bepul",
-                'image'=>''
+                'image'=>'free.png'
             ],
         ]);
     }
