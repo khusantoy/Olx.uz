@@ -2373,19 +2373,35 @@ label {
   justify-content: space-between;
   align-items: center;
 }
-.tab-header .view-more {
+
+.view-more {
+  border: none;
+  width: 150px;
+  height: 35px;
+  background-color: #EB4648;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.4s;
+}
+.view-more:hover {
+  background-color: transparent;
+  color: #EB4648;
+  border: 1px solid #EB4648;
+}
+.tab-header{
   font-size: 13px;
   font-weight: 700;
   display: flex;
   border-bottom: 2px solid #cce7d0;
   margin-bottom: 20px;
 }
-.tab-header .view-more i {
+.tab-header{
   margin-left: 5px;
   margin-top: 5px;
   transition: 0.5s;
 }
-.tab-header .view-more:hover i {
+.tab-header:hover{
   transform: translateX(5px);
   transition: 0.5s;
 }
@@ -4101,21 +4117,6 @@ table .product-thumbnail img {
 .sort-by-dropdown ul li a:hover {
   background-color: #EB4648;
   color: #ffffff;
-}
-
-.view-more {
-  position: relative;
-  color: #6B7280;
-}
-.view-more:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -9px;
-  height: 1px;
-  width: 39px;
-  /* or 100px */
-  border-bottom: 1px solid #6B7280;
 }
 
 /*Product list*/
@@ -8126,8 +8127,6 @@ span.fi-rs-apps {
 }
 .main-menu > nav > ul > li ul.mega-menu li ul li a:hover {
   color: #EB4648;
-  padding-left: 10px;
-  letter-spacing: 0.5px;
 }
 .main-menu > nav > ul > li ul.mega-menu li .menu-banner-wrap {
   overflow: hidden;
