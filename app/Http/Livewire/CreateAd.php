@@ -49,6 +49,7 @@ class CreateAd extends Component
             'user_id'=>auth()->user()->id,
             'category_id'=>$this->category_id,
             'price'=>$this->price,
+            'view'=>1
         ]);
 
 

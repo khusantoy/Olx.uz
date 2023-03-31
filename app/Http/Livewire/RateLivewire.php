@@ -11,13 +11,19 @@ class RateLivewire extends Component
     public function mount($elon)
     {
         $this->elon=$elon;
-
+        if(!auth()->check()){
+            return   redirect()->route('login');
+        }
     }
 
     public function updatedRate($rate)
     {
-        $announcement=$this->elon;
-        $announcement->rateOnce($rate);
+        if(auth()->check()){
+            $announcement=$this->elon;
+            $announcement->rateOnce($rate);
+        }else{
+            return   redirect()->route('login');
+        }
 
     }
 

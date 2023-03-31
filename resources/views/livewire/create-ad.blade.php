@@ -29,6 +29,7 @@
                     <input type="file" wire:model="image" multiple class="form-control"
                         id="password">
                 </div>
+                <input type="hidden" name="view" value="1" multiple class="form-control">
                 <div class="col-md-6">
                     <label for="image" class="form-label">type</label>
                     <select name="type_id" wire:model="type_id" class="form-control">
