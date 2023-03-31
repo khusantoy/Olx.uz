@@ -16,8 +16,8 @@ class AnnouncementController extends Controller
     public function index()
     {
         Paginator::useBootstrap();
-            $announcements=Announcement::orderByDesc('id')->paginate(20);
-        return view('admin.announcements.index',compact('announcements'));
+        $announcements = Announcement::orderByDesc('id')->paginate(20);
+        return view('admin.announcements.index', compact('announcements'));
     }
 
     /**
@@ -25,8 +25,8 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        $categories=SupCategory::pluck('title','id');
-        return view('admin.announcements.create',compact('categories'));
+        $categories = SupCategory::pluck('title', 'id');
+        return view('admin.announcements.create', compact('categories'));
     }
 
     /**
@@ -35,35 +35,35 @@ class AnnouncementController extends Controller
     public function store(Request $request)
     {
 
-       $request->validate([
-          'title'=>'required',
-          'description'=>'required',
-          'type_id'=>'required',
-          'price'=>'required',
-          'image'=>'required',
-       ]);
-       $massiv=[
-           'title'=>$request->title,
-           'description'=>$request->description,
-           'type'=>$request->type_id,
-           'price'=>$request->price,
-           'view'=>'0',
-           'user_id'=>auth()->user()->id,
-           'category_id'=>$request->category_id,
-       ];
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'type_id' => 'required',
+            'price' => 'required',
+            'image' => 'required',
+        ]);
+        $massiv = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'type' => $request->type_id,
+            'price' => $request->price,
+            'view' => '0',
+            'user_id' => auth()->user()->id,
+            'category_id' => $request->category_id,
+        ];
 
-       $elon=  Announcement::create($massiv);
+        $elon = Announcement::create($massiv);
 
         foreach ($request->image as $image) {
             $file = $image;
             $image_name = uniqid() . $file->getClientOriginalName();
-            $i= new Image(['name'=>$image_name]);
+            $i = new Image(['name' => $image_name]);
             $elon->images()->save($i);
             $file->move(public_path('storage'), $image_name);
-       }
+        }
 
 
-       return redirect()->route('announcements.index');
+        return redirect()->route('announcements.index');
 
     }
 
@@ -72,8 +72,8 @@ class AnnouncementController extends Controller
      */
     public function show(string $id)
     {
-        $elon=Announcement::find($id);
-        return view('admin.announcements.show' ,compact('elon'));
+        $elon = Announcement::find($id);
+        return view('admin.announcements.show', compact('elon'));
 
     }
 
@@ -82,9 +82,9 @@ class AnnouncementController extends Controller
      */
     public function edit(string $id)
     {
-        $elon=Announcement::find($id);
-        $categories=SupCategory::pluck('title','id');
-        return view('admin.announcements.edit' ,compact('elon','categories'));
+        $elon = Announcement::find($id);
+        $categories = SupCategory::pluck('title', 'id');
+        return view('admin.announcements.edit', compact('elon', 'categories'));
     }
 
     /**
@@ -94,35 +94,34 @@ class AnnouncementController extends Controller
     {
 
         $request->validate([
-            'title'=>'required',
-            'description'=>'required',
-            'type_id'=>'required',
-            'price'=>'required',
+            'title' => 'required',
+            'description' => 'required',
+            'type_id' => 'required',
+            'price' => 'required',
         ]);
-        $massiv=[
-            'title'=>$request->title,
-            'description'=>$request->description,
-            'type'=>$request->type_id,
-            'price'=>$request->price,
-            'view'=>'0',
-            'user_id'=>auth()->user()->id,
-            'category_id'=>$request->category_id,
+        $massiv = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'type' => $request->type_id,
+            'price' => $request->price,
+            'view' => '0',
+            'user_id' => auth()->user()->id,
+            'category_id' => $request->category_id,
         ];
 
-        $elon= Announcement::find($id);
-           $elon->update($massiv);
+        $elon = Announcement::find($id);
+        $elon->update($massiv);
+        if ($request->image) {
+        $elon->images()->delete();
 
-           if($request->image){
-
-        foreach ($request->image as $image) {
-            $file = $image;
-            $image_name = uniqid() . $file->getClientOriginalName();
-            $i= new Image(['name'=>$image_name]);
-
-            $elon->images()->save($i);
-            $file->move(public_path('storage'), $image_name);
+            foreach ($request->image as $image) {
+                $file = $image;
+                $image_name = uniqid() . $file->getClientOriginalName();
+                $i = new Image(['name' => $image_name]);
+                $elon->images()->save($i);
+                $file->move(public_path('storage'), $image_name);
+            }
         }
-           }
 
         return redirect()->route('announcements.index');
 
@@ -133,7 +132,7 @@ class AnnouncementController extends Controller
      */
     public function destroy(string $id)
     {
-        $elon= Announcement::find($id);
+        $elon = Announcement::find($id);
         $elon->delete();
         return back();
     }

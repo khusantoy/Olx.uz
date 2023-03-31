@@ -14,14 +14,14 @@ class CreateAd extends Component
 
     public $title;
     public $description;
-    public $image='';
+    public $image = '';
     public $type_id;
     public $price;
     public $category_id;
 
     public function render()
     {
-        $categories = Category::pluck('title','id');
+        $categories = Category::pluck('title', 'id');
         return view('livewire.create-ad', compact('categories'));
     }
 
@@ -40,30 +40,28 @@ class CreateAd extends Component
         // ]);
 
 
-
-
-      $elon=  Announcement::create([
-            'title'=>$this->title,
-            'description'=>$this->description,
-            'type'=>$this->type_id,
-            'user_id'=>auth()->user()->id,
-            'category_id'=>$this->category_id,
-            'price'=>$this->price,
-            'view'=>1
+        $elon = Announcement::create([
+            'title' => $this->title,
+            'description' => $this->description,
+            'type' => $this->type_id,
+            'user_id' => auth()->user()->id,
+            'category_id' => $this->category_id,
+            'price' => $this->price,
+            'view' => 1,
         ]);
 
 
-        if($this->image!=''){
-            $massiv=$this->image;
+        if ($this->image != '') {
+            $massiv = $this->image;
             foreach ($massiv as $i) {
 
 
-               $i->store('public');
-               $elon->images()->create([
-                'name'=>$i->hashName()]
-               );
+                $i->store('public');
+                $elon->images()->create([
+                        'name' => $i->hashName()]
+                );
 
-               unlink($i->getRealPath());
+                unlink($i->getRealPath());
             }
         }
 

@@ -130,7 +130,7 @@
                 <div class="header-col">
                     @livewire('categories-livewire', ['categories' => $categories])
                     <div class="contact-item d-none d-lg-flex">
-                        <img src="assets/img/icons/icon-headphone-white.svg" alt="contact-number">
+                        <img src="{{asset('assets/img/icons/icon-headphone-white.svg')}}" alt="contact-number">
                         <p>Biz bilan bog'lanish<span>+998 74 000 0000</span></p>
                     </div>
                     <div class="header-inner-icon d-block d-lg-none">

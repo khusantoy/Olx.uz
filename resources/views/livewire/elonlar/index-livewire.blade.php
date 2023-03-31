@@ -35,7 +35,7 @@
                         </a>
                     </div>
                     <div class="product-badge">
-                        <span class="best">{{ $announcement->type }}</span>
+                        <span class="best">{{ \App\Models\Announcement::TYPES[$announcement->type] }}</span>
                     </div>
                 </div>
                 <div class="product-content">

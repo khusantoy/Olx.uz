@@ -85,6 +85,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {
         return view('admin.dashboard');
     })->name('admin');
+    Route::get('/profile', function () {
+
+        $users=\App\Models\User::find(auth()->user()->id);
+        return view('admin.profile',compact('users'));
+    })->name('profile');
 
     Route::resource('/users', \App\Http\Controllers\UsersController::class);
     Route::resource('/roles', \App\Http\Controllers\RoleController::class);

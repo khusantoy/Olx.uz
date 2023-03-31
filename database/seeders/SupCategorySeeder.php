@@ -15,7 +15,7 @@ class SupCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [ 
+        $data = [
             ['title' => 'Yengil avtomashinalar', 'image' => '', 'category_id' => 1],
             ['title' => 'Yuk avtomashinalar', 'image' => '', 'category_id' => 1],
             ['title' => 'Tirkamalar', 'image' => '', 'category_id' => 1],

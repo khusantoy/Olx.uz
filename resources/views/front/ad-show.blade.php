@@ -74,9 +74,7 @@
             <div class="page-header breadcrumb-wrap">
                 <div class="breadcrumb">
                     <a href="{{route('front')}}" rel="nofollow"><i class="fas fa-home mr-10"></i>Home</a>
-                    <span></span> <a href="shop-grid-right.html"> Mens T-Shirt </a> <span></span> EYEBOGLER Regular Fit
-                    Men's
-                    Cotton T-Shirt
+                    <span></span> {{$announcement->category->category->title}} <span></span> {{$announcement->category->title}}
                 </div>
             </div>
         </div>
@@ -129,7 +127,7 @@
                                             </li>
                                         </ul>
                                         <div class="rating d-inline-block mb-3">
-                                            {{-- @dd($announcement->ratings) --}}
+{{--                                             @dd($announcement->ratings)--}}
 
                                             @if (!empty($announcement->ratings[0]))
 
