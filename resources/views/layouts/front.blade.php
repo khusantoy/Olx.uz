@@ -10,12 +10,15 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @livewireStyles
 
     <style>
-        .opa {
+
+        .opa{
             opacity: .1;
         }
+
     </style>
 </head>
 
@@ -33,62 +36,70 @@
                         <div class="header-left">
                             <ul>
                                 <li>
-                                    <a class="language-dropdown-active" href="#">English <i
-                                        class="fi-rs-angle-small-down"></i></a>
-                                        <ul class="language-dropdown">
-                                            <li>
-                                                <a href="#"><img src="assets/img/flags/flag-en.png"
-                                                        alt="">English</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><img src="assets/img/flags/flag-uz.png"
-                                                        alt="">O'zbek</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><img src="assets/img/flags/flag-ru.png"
-                                                        alt="">Pусский</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
+                                    <a class="language-dropdown-active" href="#">O'zbek <i
+                                            class="fi-rs-angle-small-down"></i></a>
+                                    <ul class="language-dropdown">
+                                        <li>
+                                            <a href="#"><img src="assets/img/flags/flag-en.png"
+                                                    alt="">English</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="assets/img/flags/flag-ru.png"
+                                                    alt="">Pусский</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="col-xl-3 col-lg-4">
-                            <div class="header-details">
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="header-details">
+                            <div class="header-inner">
                                 @if (Auth::user())
-                                <div class="header-inner">
                                     <div class="header-inner-icon">
                                         <a href="{{ route('front.wishlist') }}" class="d-flex align-items-center">
                                             <span><img src="assets/img/icons/icon-wishlist.svg" alt=""></span>
-                                            <span class="lable mt-0">Wishlist (0)</span>
+                                            <span class="lable mt-0">Istaklar (0)</span>
                                         </a>
                                     </div>
                                     <div class="header-inner-icon">
-                                        <a href="#" class="d-flex align-items-center">
+                                        <a href="#" class="d-flex align-items-center" >
                                             <span><img src="assets/img/icons/icon-profile.svg" alt=""></span>
-                                            <span class="lable mt-0">My Account</span>
+                                            <span class="lable mt-0">Hisobingiz</span>
                                         </a>
                                         <div class="cart-dropdown-wrap account-dropdown">
                                             <ul>
                                                 <li>
-                                                    <a href="{{ route('front.account') }}">My Account</a>
+                                                    <a href="{{ route('front.account') }}">Hisobim</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('front.wishlist') }}">Wishlist</a>
+                                                    <a href="{{ route('front.wishlist') }}">Istaklar</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('logout.front') }}">Sign Out</a>
+                                                    <a href="{{ route('logout.front') }}">Chiqish</a>
                                                 </li>
                                             </ul>
                                         </div>
-                                    @else
-                                        <a href="{{ route('login') }}" class="text-danger h3">Login</a>
 
                                     </div>
-                                    @endif
-                                </div>
+                                    <div class="header-inner-icon">
+                                        <button class="btn btn-primary" style="border-radius: 35px" data-toggle="modal"
+                                        data-target="#exampleModalCenter">E'lon berish</button>
+                                    </div>
+                                    @else
+                                    <div class="header-inner-icon">
+                                        <a href="{{ route('login') }}" class="d-flex align-items-center" style="margin-right: 30px">
+                                            <span><img src="assets/img/icons/icon-profile.svg" alt=""></span>
+                                            <span class="lable mt-0">Hisobingiz</span>
+                                        </a>
+                                        <a href="{{ route('login') }}" >
+                                            <button  class="text-white btn btn-primary" style="border-radius: 35px" >E'lon berish</button>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -105,17 +116,6 @@
 
                     <div>
                         <!-- Modal -->
-                        @if (Auth::user())
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                E'lon berish
-                            </button>
-                        @else
-                            <button class="btn btn-primary">
-                                <a href="{{ route('login5') }}" class="text-white">E'lon berish uchun tizimga kirish</a>
-                            </button>
-                        @endif
-
                         <div class="modal fade" id="exampleModalCenter" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -130,17 +130,10 @@
         <div class="header-bottom sticky-bar">
             <div class="container">
                 <div class="header-col">
-
-
                     @livewire('categories-livewire', ['categories' => $categories])
-
-
-
-
-
                     <div class="contact-item d-none d-lg-flex">
                         <img src="assets/img/icons/icon-headphone-white.svg" alt="contact-number">
-                        <p>CALL US NOW<span>+998 74 000 0000</span></p>
+                        <p>Biz bilan bog'lanish<span>+998 74 000 0000</span></p>
                     </div>
                     <div class="header-inner-icon d-block d-lg-none">
                         <div class="bar-icon">
@@ -349,108 +342,55 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <section class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="footer-about font-md mb-md-3 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp"
-                            data-wow-delay="0">
-                            <div class="logo mb-30 mt-20">
-                                <p>Integer posuere orci sit amet feugiat pellent que. Suspendisse vel tempor justo, sit
-                                    amet posuere orci dapibus auctor.Integer posuere orci sit amet.</p>
-                                <a href="index.html"><img src="assets/img/payment.png" alt="logo" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                        <h4 class="footer-title">Contact Info</h4>
-                        <ul class="contact-info">
-                            <li>
-                                <p><i class="fas fa-phone-alt"></i> +3 (523) 555 123 8745</p>
-                            </li>
-                            <li>
-                                <p><i class="fas fa-envelope"></i> example@domain.com</p>
-                            </li>
-                            <li>
-                                <p><i class="fas fa-map-marker-alt"></i> Andijan</p>
-                            </li>
-                        </ul>
-                        <ul class="footer-social-icon">
-                            <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                        <h4 class="footer-title">Usefull Links</h4>
-                        <ul class="footer-list mb-sm-5 mb-md-0">
-                            <li><a href="#">Product Recall</a></li>
-                            <li><a href="#">Gift Vouchers</a></li>
-                            <li><a href="#">Returns & Exchange</a></li>
-                            <li><a href="#">Shipping Options</a></li>
-                            <li><a href="#">Help & FAQs</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
-                        <h4 class="footer-title">Quick Links</h4>
-                        <ul class="footer-list mb-sm-5 mb-md-0">
-                            <li><a href="about-us.html">About Us </a></li>
-                            <li><a href="product-category-grid.html">Shop Products</a></li>
-                            <li><a href="cart.html">My Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
         <div class="footer-middle">
             <div class="container wow animate__animated animate__fadeInUp" data-wow-delay="0">
                 <div class="row">
-                    <div class="col-12 mb-30">
-                        <h4 class="footer-title">Categories</h4>
+                    <div class="col-6 mb-30">
+                        <h4 class="footer-title">Kategoriyalar</h4>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="col-6 mb-30">
+                        <h4 class="footer-title">FAQ</h4>
+                    </div>
+                    <div class="col-lg-2 col-md-4">
                         <ul class="footer-list">
-                            <li><a href="product-category-list.html">Cable & Accessories</a></li>
-                            <li><a href="product-category-list.html">Industrial Controls</a></li>
-                            <li><a href="product-category-list.html">Wiring Accessories</a></li>
+                            <li><a href="product-category-list.html">Transport</a></li>
+                            <li><a href="product-category-list.html">Ko'chmas mulk</a></li>
+                            <li><a href="product-category-list.html">Bolalar dunyosi</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="col-lg-2 col-md-4">
                         <ul class="footer-list">
-                            <li><a href="product-category-list.html">Cable Management</a></li>
-                            <li><a href="product-category-list.html">Lamps & Tubes</a></li>
-                            <li><a href="product-category-list.html">Workwear, PPE & Safety</a></li>
+                            <li><a href="product-category-list.html">Elektronika</a></li>
+                            <li><a href="product-category-list.html">Kitoblar</a></li>
+                            <li><a href="product-category-list.html">Hayvonlar</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="col-lg-2 col-md-4">
                         <ul class="footer-list">
-                            <li><a href="product-category-list.html">CCTV, Fire & Security</a></li>
-                            <li><a href="product-category-list.html">Lighting Luminaires</a></li>
-                            <li><a href="product-category-list.html">CCTV, Fire & Security</a></li>
+                            <li><a href="product-category-list.html">Xizmatlar</a></li>
+                            <li><a href="product-category-list.html">Bepul</a></li>
+                            <li><a href="product-category-list.html">Mevalar</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="col-lg-2 col-md-4">
                         <ul class="footer-list">
-                            <li><a href="product-category-list.html">Data & Networking</a></li>
-                            <li><a href="product-category-list.html">Switchgear & Distribution</a></li>
-                            <li><a href="product-category-list.html">Data & Networking</a></li>
+                            <li><a href="product-category-list.html">Qanday sotib olish?</a></li>
+                            <li><a href="product-category-list.html">Qanday sotish?</a></li>
+                            <li><a href="product-category-list.html">Xavfsizlik qoidalari</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="col-lg-2 col-md-4">
                         <ul class="footer-list">
-                            <li><a href="product-category-list.html">Domestic & Smart Home</a></li>
-                            <li><a href="product-category-list.html">Test Equipment</a></li>
-                            <li><a href="product-category-list.html">Domestic & Smart Home</a></li>
+                            <li><a href="product-category-list.html">Maxfiylik siyosati</a></li>
+                            <li><a href="product-category-list.html">Teskari aloqa</a></li>
+                            <li><a href="product-category-list.html">Career</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="col-lg-2 col-md-4">
                         <ul class="footer-list">
-                            <li><a href="product-category-list.html">Heating & Ventilation</a></li>
-                            <li><a href="product-category-list.html">Tools & Fixings</a></li>
-                            <li><a href="product-category-list.html">Heating & Ventilation</a></li>
+                            <li><a href="product-category-list.html">Foydalanish shartlari</a></li>
+                            <li><a href="product-category-list.html">Saytda reklama</a></li>
+                            <li><a href="product-category-list.html">Yordam</a></li>
                         </ul>
                     </div>
                 </div>
@@ -459,17 +399,8 @@
         <div class="footer-bottom wow animate__animated animate__fadeInUp" data-wow-delay="0">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-5">
-                        <p class="font-sm mb-0">Copyright © 2023 VEBMUHANDIS All rights reserved.</p>
-                    </div>
-                    <div class="col-lg-6 col-md-7">
-                        <ul class="footer-list mb-sm-5 mb-md-0">
-                            <li><a href="#">My Orders</a></li>
-                            <li><a href="#">Help</a></li>
-                            <li><a href="#">Site Map</a></li>
-                            <li><a href="about-us.html">About</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
-                        </ul>
+                    <div>
+                        <p class="font-sm mb-0 text-center">Copyright © 2023 Web Team 1</p>
                     </div>
                 </div>
             </div>
@@ -503,7 +434,7 @@
     <script>
         document.addEventListener('qaytadanrender', () => {
 
-            document.getElementById('qaytadanrender').click();
+               document.getElementById('qaytadanrender').click();
 
         })
     </script>
