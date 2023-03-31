@@ -9,9 +9,9 @@ class AddRatingController extends Controller
 {
     public function index(Announcement $announcement)
     {
-        
+
         $announcement->rate(1);
-        
+
         return redirect()->back();
     }
 }

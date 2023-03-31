@@ -17,4 +17,3 @@ Route::get('/logoutfront', function () {
     return view('auth.login');
 })->name('logout.front');
 
-Route::redirect('/register' , '/login');
