@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('type');
             $table->string('view');
             $table->string('price');
-
             
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
