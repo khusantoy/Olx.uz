@@ -6,18 +6,17 @@ use Livewire\Component;
 
 class RateLivewire extends Component
 {
-    public $elon,$rate;
+    public $elon,$rate=false,$comment='';
 
     public function mount($elon)
     {
         $this->elon=$elon;
-        if(!auth()->check()){
-            return   redirect()->route('login');
-        }
+       
     }
 
     public function updatedRate($rate)
     {
+       
         if(auth()->check()){
             $announcement=$this->elon;
             $announcement->rateOnce($rate);
@@ -25,6 +24,20 @@ class RateLivewire extends Component
             return   redirect()->route('login');
         }
 
+    }
+
+    public function test($rating)
+    {
+
+        $this->rate=$rating;
+    }
+
+    public function add(){
+
+        if($this->rate && !$this->comment==''){
+            $announcement=$this->elon;
+           $announcement->rate($this->rate, $this->comment );
+        }
     }
 
 
