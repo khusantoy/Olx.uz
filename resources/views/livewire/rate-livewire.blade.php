@@ -1,5 +1,7 @@
 <div class="modal-content">
-    <div class="text-right cross"> <i class="fa fa-times mr-2"></i> </div>
+    <div>  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">X</span>
+        </button> </div>
     <div class="card-body text-center"> <img src="https://i.imgur.com/d2dKtI7.png" height="100" width="100" alt="good image">
         <div class="comment-box text-center">
             <h4>Add a comment</h4>
@@ -24,3 +26,4 @@
             </div>
         </div>
     </div>
+</div>

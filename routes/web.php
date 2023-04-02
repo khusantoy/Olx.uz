@@ -43,7 +43,7 @@ Route::get('/', function () {
 })->name('front');
 
 Route::get('/MyAnno', function () {
-    $announcements = DB::table('announcements')->where(\auth()->user()->id, 'user_id')->get();
+    $announcements = Announcement::with('user')->get();
     $categories = Category::with(['supCategories' => function ($query) {
         return $query->whereNot('title', "like", "%10%");
     }])->get();
