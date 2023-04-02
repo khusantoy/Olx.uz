@@ -118,12 +118,9 @@
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
                                                 <span class="current-price">$ {{ $announcement->price }}</span>
-                                                <span class="old-price">$ 450.00</span>
-                                                <span class="save-price">-72%</span>
                                             </div>
                                         </div>
                                         <ul class="pro-code">
-                                            <li>Product Code : <span class="text-black">T285HS</span></li>
                                             <li>Subcategory : <span
                                                     class="text-black">{{ $announcement->category->title }}</span>
                                             </li>
@@ -148,29 +145,16 @@
                                             @endif
                                         </div>
                                         <p class="in-stock text-brand">39 in Stock</p>
-                                        <div class="detail-extralink">
-                                            <div class="detail-qty border radius">
-                                                <a href="#" class="qty-down"><i class="fi-rs-minus-small"></i></a>
-                                                <span class="qty-val">1</span>
-                                                <a href="#" class="qty-up"><i class="fi-rs-plus-small"></i></a>
-                                            </div>
-                                            <div class="size-select">
-                                                <select class="form-select">
-                                                    <option>Size : Small ( $ 15.00 )</option>
-                                                    <option>Size : Medium ( $ 20.00 )</option>
-                                                    <option>Size : Large ( $ 25.00 )</option>
-                                                </select>
-                                            </div>
+                                            <div class="product-extra-link2 d-flex">
+                                            @livewire('like', ['elon' => $announcement])
                                         </div>
-
-                                        @livewire('like', ['elon' => $announcement])
                                         <div class="pro-share">
                                             <ul>
                                                 <li class="me-2"><span>Share :</span></li>
-                                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i class="fab fa-facebook"></i></a></li>
+                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i class="fab fa-telegram"></i></a></li>
+                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i class="fab fa-twitter"></i></a></li>
                                             </ul>
                                             <ul>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal"
