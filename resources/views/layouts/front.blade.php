@@ -57,7 +57,7 @@
                                     <div class="header-inner-icon">
                                         <a href="{{ route('front.wishlist') }}" class="d-flex align-items-center">
                                             <span><img src="assets/img/icons/icon-wishlist.svg" alt=""></span>
-                                            <span class="lable mt-0">Istaklar (0)</span>
+                                            <span class="lable mt-0">Istaklar ()</span>
                                         </a>
                                     </div>
                                     <div class="header-inner-icon">

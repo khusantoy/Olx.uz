@@ -1,7 +1,13 @@
 <div class="modal-content">
+<<<<<<< HEAD
     <button type="button"  class="close" data-dismiss="modal" aria-label="Close">
         <span id="qaytadanrender2" aria-hidden="true">X</span>
     </button>
+=======
+    <div>  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">X</span>
+        </button> </div>
+>>>>>>> origin/master
     <div class="card-body text-center"> <img src="https://i.imgur.com/d2dKtI7.png" height="100" width="100" alt="good image">
         <div class="comment-box text-center">
             <h4>Add a comment</h4>
@@ -26,3 +32,4 @@
             </div>
         </div>
     </div>
+</div>
