@@ -11,20 +11,9 @@ class RateLivewire extends Component
     public function mount($elon)
     {
         $this->elon=$elon;
-       
-    }
-
-    public function updatedRate($rate)
-    {
-       
-        if(auth()->check()){
-            $announcement=$this->elon;
-            $announcement->rateOnce($rate);
-        }else{
-            return   redirect()->route('login');
-        }
 
     }
+
 
     public function test($rating)
     {
@@ -33,11 +22,17 @@ class RateLivewire extends Component
     }
 
     public function add(){
-
-        if($this->rate && !$this->comment==''){
-            $announcement=$this->elon;
-           $announcement->rate($this->rate, $this->comment );
+        if(auth()->check()){
+            if($this->rate && !$this->comment==''){
+                $announcement=$this->elon;
+                $announcement->rateOnce($this->rate, $this->comment );
+            }
+        }else{
+            return   redirect()->route('login');
         }
+        $this->emit('qaytadanrender2');
+        $this->dispatchBrowserEvent('qaytadanrender2');
+
     }
 
 
@@ -45,4 +40,5 @@ class RateLivewire extends Component
     {
         return view('livewire.rate-livewire');
     }
+
 }

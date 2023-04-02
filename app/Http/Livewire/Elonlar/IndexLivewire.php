@@ -11,15 +11,28 @@ class IndexLivewire extends Component
     public $count=16;
     public $elon=false;
     public $elonlar;
-     protected $listeners=[
+    public $hasLiked=false;
+
+    protected $listeners=[
         'category_click','qaytadanrender'
     ];
     public function qaytadanrender(){
-   
-        $this->render();    
+
+        $this->render();
     }
 
-  
+
+
+    public function like($id)
+    {
+        $elon=Announcement::find($id);
+        $user = auth()->user();
+        $user->toggleFollow($elon);
+        $this->hasLiked= $user->isFollowing($elon);
+
+
+    }
+
     public function category_click($category_id,$test=false){
         if( $test=='test'){
             $this->count+=16;
@@ -35,13 +48,13 @@ class IndexLivewire extends Component
             ->get();
         }
 
-        
-            
-       
+
+
+
         $this->dispatchBrowserEvent('category_bosildi');
     }
 
-   
+
 
     public function showElon($id){
         $elon = Announcement::find($id);
@@ -50,8 +63,8 @@ class IndexLivewire extends Component
     public function render()
     {
         $this->elonlar=Announcement::take($this->count)->orderByDesc('id')->get();
-        
-        sleep(1);
+
+
         return view('livewire.elonlar.index-livewire');
     }
 
