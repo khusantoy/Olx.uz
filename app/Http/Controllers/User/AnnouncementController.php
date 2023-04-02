@@ -36,6 +36,9 @@ class AnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
+
+        $announcement->view = $announcement->view + 1;
+
         $categories = Category::all();
         return view('front.ad-show' ,compact('announcement' , 'categories' ));
     }

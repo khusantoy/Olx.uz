@@ -121,14 +121,18 @@
                                             </div>
                                         </div>
                                         <ul class="pro-code">
-                                            <li>Subcategory : <span
+                                            <li>Category : <span
                                                     class="text-black">{{ $announcement->category->title }}</span>
                                             </li>
+
+                                            <li>Ko'rilganlar soni : <span
+                                                class="text-black">{{ $announcement->view }}</span>
+                                        </li>
                                         </ul>
                                         <div class="rating d-inline-block mb-3">
                                             {{--                                             @dd($announcement->ratings) --}}
 
-                                            @if (!empty($announcement->ratings[0]))
+                                            {{-- @if (!empty($announcement->ratings[0]))
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -142,24 +146,27 @@
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="far fa-star"></i>
-                                            @endif
+                                            @endif --}}
                                         </div>
                                         <p class="in-stock text-brand">39 in Stock</p>
-                                            <div class="product-extra-link2 d-flex">
+                                        <div class="product-extra-link2 d-flex">
                                             @livewire('like', ['elon' => $announcement])
                                         </div>
                                         <div class="pro-share">
                                             <ul>
                                                 <li class="me-2"><span>Share :</span></li>
-                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i class="fab fa-facebook"></i></a></li>
-                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i class="fab fa-telegram"></i></a></li>
-                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i class="fab fa-instagram"></i></a></li>
-                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i
+                                                            class="fab fa-facebook"></i></a></li>
+                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i
+                                                            class="fab fa-telegram"></i></a></li>
+                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                                <li><a href="https://t.me/+3hKeXrRzGmE5MjUy"><i
+                                                            class="fab fa-twitter"></i></a></li>
                                             </ul>
                                             <ul>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal"
                                                     data-target="#form"> See Modal with Form </button>
-
                                             </ul>
                                         </div>
                                     </div>
