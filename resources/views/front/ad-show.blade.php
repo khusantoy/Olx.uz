@@ -130,9 +130,8 @@
                                         </li>
                                         </ul>
                                         <div class="rating d-inline-block mb-3">
-                                            {{--                                             @dd($announcement->ratings) --}}
 
-                                            {{-- @if (!empty($announcement->ratings[0]))
+                                             @if (!empty($announcement->ratings[0]))
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -141,12 +140,12 @@
                                                 @livewire('rate.rate-livewire', ['elon' => $announcement])
 
                                             @else
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
                                                 <i class="far fa-star"></i>
-                                            @endif --}}
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            @endif
                                         </div>
                                         <p class="in-stock text-brand">39 in Stock</p>
                                         <div class="product-extra-link2 d-flex">

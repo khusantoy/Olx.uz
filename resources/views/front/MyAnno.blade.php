@@ -25,15 +25,13 @@
                                     <!-- Single Product -->
                                     <div class="product-card">
                                         <div class="product-img-col">
-{{--                                                    @foreach ($announcement->images as $image)--}}
-                                                <div class="product-img product-img-zoom">
-                                                    <div class="product-img-inner">
-                                                        <a href="view-product.html">
-                                                            <img class="default-img" src="assets/img/shop/product-08.jpg" alt="" />
-                                                        </a>
-                                                    </div>
+                                            <div class="product-img product-img-zoom">
+                                                <div class="product-img-inner">
+                                                    <a href="view-product.html">
+
+                                                    </a>
                                                 </div>
-{{--                                                    @endforeach--}}
+                                            </div>
                                             <div class="product-badge">
                                                 <span class="best">Sale</span>
                                             </div>
