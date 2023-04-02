@@ -1,16 +1,12 @@
 <div class="modal-content">
-<<<<<<< HEAD
-    <button type="button"  class="close" data-dismiss="modal" aria-label="Close">
-        <span id="qaytadanrender2" aria-hidden="true">X</span>
+
+    <button type="button"  class="close d-none" data-dismiss="modal" aria-label="Close">
+        <span id="qaytadanrender2" aria-hidden="true"></span>
     </button>
-=======
-    <div>  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">X</span>
-        </button> </div>
->>>>>>> origin/master
-    <div class="card-body text-center"> <img src="https://i.imgur.com/d2dKtI7.png" height="100" width="100" alt="good image">
+
+    <div class="card-body text-center">
         <div class="comment-box text-center">
-            <h4>Add a comment</h4>
+            <h4>Add a comment</h4><br>
             <div class="rating">
                 <input type="radio" name="rating" wire:click="test(5)" value="5" id="5"><label
                     for="5">☆</label>
@@ -23,6 +19,7 @@
                 <input type="radio" name="rating" wire:click="test(1)" value="1" id="1"><label
                     for="1">☆</label>
             </div>
+            <br><br>
             <div class="comment-area">
                 <textarea wire:model="comment" class="form-control" placeholder="what is your view?" rows="4"></textarea>
             </div>
