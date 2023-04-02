@@ -10,6 +10,7 @@ use App\Models\Announcement;
 
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,17 +42,28 @@ Route::get('/', function () {
     return view('front.index', compact('categories'));
 })->name('front');
 
+Route::get('/MyAnno', function () {
+    $announcements = DB::table('announcements')->where(\auth()->user()->id, 'user_id')->get();
+    $categories = Category::with(['supCategories' => function ($query) {
+        return $query->whereNot('title', "like", "%10%");
+    }])->get();
+    return view('front.MyAnno', compact('categories','announcements'));
+})->name('front.MyAnno')->middleware('auth');
+
 Route::get('/wishlist', function () {
     $announcements = Announcement::all();
     $categories = Category::with(['supCategories' => function ($query) {
         return $query->whereNot('title', "like", "%10%");
     }])->get();
     return view('front.wishlist', compact('categories','announcements'));
-})->name('front.wishlist');
+})->name('front.wishlist')->middleware('auth');
 
 Route::get('/cart', function () {
-    return view('front.cart');
-})->name('front.cart');
+    $categories = Category::with(['supCategories' => function ($query) {
+        return $query->whereNot('title', "like", "%10%");
+    }])->get();
+    return view('front.cart',compact('categories'));
+})->name('front.cart')->middleware('auth');
 
 @include('auth.php');
 
@@ -77,6 +89,8 @@ Route::get('/account', function () {
     $categories = Category::with('supcategories')->get();
     return view('front.account', compact('categories'));
 })->name('front.account');
+
+
 // show ad
 Route::get('/ad/{announcement}', [UserAnnouncementController::class, 'show'])->name('ad-show');
 

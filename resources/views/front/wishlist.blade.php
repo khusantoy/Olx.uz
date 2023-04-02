@@ -82,39 +82,43 @@
                                         </div>
                                     </div>
                                     <div class="row justify-content-center">
-                                    @foreach($announcements as $announcement)
-                                        @foreach(Auth::user()->followings()->get() as $f)
-                                            @if($f->followable_id==$announcement->id)
-                                        <div class="col-lg-4">
-                                            <div class="card mb-25">
-                                                <div class="card-body">
-                                                    <div class="wishlist-img">
-                                                        @foreach ($announcement->images as $image)
-                                                        <a href="view-product.html">
-                                                            <img src="{{asset("storage/$image->name") }}" alt=""
-                                                                 class="img-fluid">
-                                                        </a>
-                                                        @endforeach
-                                                        <a href="#" class="wishlist-delete-btn">
-                                                            <i class="feather-trash-2"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="wishlist-content-wrap">
-                                                        <h2><a href="view-product.html">{{$announcement->title}}</a></h2>
-                                                        <div class="wishlist-card-bottom mt-0">
-                                                            <div class="wishlist-price">
-                                                                <span>${{$announcement->price}}</span>
-                                                                <span class="old-price">$ 450.00</span>
-                                                                <span class="discount-tag">-72%</span>
+                                        @foreach($announcements as $announcement)
+                                            @foreach(Auth::user()->followings()->get() as $f)
+                                                @if($f->followable_id==$announcement->id)
+                                                    <div class="col-lg-4">
+                                                        <div class="card mb-25">
+                                                            <div class="card-body">
+                                                                <div class="wishlist-img">
+                                                                    @foreach ($announcement->images as $image)
+                                                                        <a href="view-product.html">
+                                                                            <img
+                                                                                src="{{asset("storage/$image->name") }}"
+                                                                                alt=""
+                                                                                class="img-fluid">
+                                                                        </a>
+                                                                    @endforeach
+                                                                    <a href="#" class="wishlist-delete-btn">
+                                                                        <i class="feather-trash-2"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="wishlist-content-wrap">
+                                                                    <h2>
+                                                                        <a href="view-product.html">{{$announcement->title}}</a>
+                                                                    </h2>
+                                                                    <div class="wishlist-card-bottom mt-0">
+                                                                        <div class="wishlist-price">
+                                                                            <span>${{$announcement->price}}</span>
+                                                                            <span class="old-price">$ 450.00</span>
+                                                                            <span class="discount-tag">-72%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @endforeach
-                                    @endforeach
+                                                @endif
+                                            @endforeach
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
