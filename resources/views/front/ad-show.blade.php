@@ -134,8 +134,8 @@
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star-half-alt"></i>
                                                 <i class="far fa-star"></i>
+                                                @livewire('rate.rate-livewire', ['elon' => $announcement])
 
-                                                <span class="ml-5"> {{ $announcement->averageRating }}</span>
                                             @else
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -414,4 +414,5 @@
             opacity: 0.4
         }
     </style>
+
 @endsection
