@@ -40,4 +40,11 @@ class Announcement extends Model
         '1'=>'sotuvda',
         '2'=>'sotildi'
     ];
+
+    
+    public function users()
+    {
+        return $this->belongsToMany(User::class , 'user_announcement');
+    }
+
 }
