@@ -1,4 +1,4 @@
-<div class="row product-grid"  wire:loading.class="opa" >
+<div class="row product-grid" wire:loading.class="opa">
     <!-- Product box -->
 
     @foreach ($elonlar as $announcement)
@@ -6,32 +6,33 @@
             <div class="product-card mb-30">
                 <div class="product-img-col">
                     <div class="product-img product-img-zoom">
-                        <a href="{{ route('front.view-product') }}">
+                        <a href="{{ route('ad-show' , $announcement) }}">
                             @php
-                                $name='';
-                            if (count($announcement->images)){
-                            $name=$announcement->images[0]->name;
-                            }
+                                $name = '';
+                                if (count($announcement->images)) {
+                                    $name = $announcement->images[0]->name;
+                                }
                             @endphp
-                            <img src="{{asset('storage/'.$name)}}" alt="">
+                            <img src="{{ asset('storage/' . $name) }}" alt="">
                             @php
-                                $name='';
+                                $name = '';
                             @endphp
                         </a>
                     </div>
                     <div class="product-inner-details">
-                        <a aria-label="Quick view" class="product-btn"  href="{{ route('ad-show', $announcement) }}">
+                        <a aria-label="Quick view" class="product-btn" href="{{ route('ad-show', $announcement) }}">
                             <i class="fi-rs-eye"></i>
                         </a>
                         <a aria-label="Search" class="product-btn" href="#">
                             <i class="fi-rs-search"></i>
                         </a>
-                        <button aria-label="Add To  Wishlist" wire:click="like({{$announcement->id}})" class="product-btn  border border-none bg-white"
-                        ><i @if (auth()->user()->isFollowing($announcement))  style="color: red" @endif class="fi-rs-heart "></i>
+                        <button aria-label="Add To  Wishlist" wire:click="like({{ $announcement->id }})"
+                            class="product-btn  border border-none bg-white"><i
+                                {{-- @if (auth()->user()->isFollowing($announcement)) style="color: red" @endif --}}
+                                 class="fi-rs-heart "></i>
                         </button>
                         <a href="cart.html" aria-label="Cart" class="product-btn">
-                            <i
-                                class="fi-rs-shopping-cart"></i>
+                            <i class="fi-rs-shopping-cart"></i>
                         </a>
                     </div>
                     <div class="product-badge">
@@ -59,7 +60,8 @@
             </div>
 
             <!-- Quick view -->
-            <div class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModal" aria-hidden="true">
+            <div class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModal"
+                aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <button type="button" class="btn-close quick-close" data-bs-dismiss="modal" aria-label="Close">
@@ -134,7 +136,8 @@
                                         <p class="in-stock text-brand">39 in Stock</p>
                                         <div class="detail-extralink">
                                             <div class="detail-qty border radius">
-                                                <a href="#" class="qty-down"><i class="fi-rs-minus-small"></i></a>
+                                                <a href="#" class="qty-down"><i
+                                                        class="fi-rs-minus-small"></i></a>
                                                 <span class="qty-val">1</span>
                                                 <a href="#" class="qty-up"><i class="fi-rs-plus-small"></i></a>
                                             </div>
@@ -143,7 +146,7 @@
                                             <button type="submit" class="button button-add-to-cart me-3"><i
                                                     class="fi-rs-shopping-cart"></i> ADD TO CART</button>
                                             <a aria-label="Add To Wishlist" class="button btn-wishlist"
-                                               href="wishlist.html"><i class="fi-rs-heart me-1 ms-1"></i></a>
+                                                href="wishlist.html"><i class="fi-rs-heart me-1 ms-1"></i></a>
                                         </div>
                                         <div class="pro-share">
                                             <ul>
@@ -161,12 +164,12 @@
                                         <div class="tab-style3">
                                             <ul class="nav nav-tabs text-uppercase modal-nav">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" id="Description-tab" data-bs-toggle="tab"
-                                                       href="#Description">Description</a>
+                                                    <a class="nav-link active" id="Description-tab"
+                                                        data-bs-toggle="tab" href="#Description">Description</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab"
-                                                       href="#Specification">Specification</a>
+                                                        href="#Specification">Specification</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content shop_info_tab entry-main-content">

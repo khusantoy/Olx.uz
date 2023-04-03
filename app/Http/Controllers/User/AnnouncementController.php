@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Announcement;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class AnnouncementController extends Controller
 {
@@ -28,7 +29,6 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-
     }
 
     /**
@@ -37,10 +37,21 @@ class AnnouncementController extends Controller
     public function show(Announcement $announcement)
     {
 
-        $announcement->view = $announcement->view + 1;
+        // $count = 2;
+        // $count++;
+        // dd($count);
+        cache(['ad' => 'showed']);
+
+        if (cache('ad') !== 'showed') {
+            $announcement->view = $announcement->view + 1;
+            $announcement->update([
+                'view' =>  $announcement->view,
+            ]);
+        }
 
         $categories = Category::all();
-        return view('front.ad-show' ,compact('announcement' , 'categories' ));
+        $announcements = Announcement::with('category')->get();
+        return view('front.ad-show', compact('announcement', 'categories', 'announcements'));
     }
 
     /**

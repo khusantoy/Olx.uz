@@ -157,8 +157,6 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                             @endif
-
-                                                 @livewire('rate.rate-livewire', ['elon' => $announcement])
                                         </div>
                                         <p class="in-stock text-brand">39 in Stock</p>
                                         <div class="product-extra-link2 d-flex">
