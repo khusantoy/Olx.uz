@@ -132,12 +132,23 @@
                                         <div class="rating d-inline-block mb-3">
 
                                              @if (!empty($announcement->ratings[0]))
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt"></i>
-                                                <i class="far fa-star"></i>
-                                                @livewire('rate.rate-livewire', ['elon' => $announcement])
+                                                 @for($i = 1; $i <= 5; $i++)
+
+                                                    <i class="@if($announcement->averageRating==$i || $announcement->averageRating>$i )  fas @else far @endif
+                                                      @if( $announcement->averageRating==($i-0.5) )
+                                                        fa-star-half-alt @else
+                                                        fa-star
+                                                        @endif"></i>
+
+
+                                                 @endfor
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class=" fa-star-half-alt"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+
+
 
                                             @else
                                                 <i class="far fa-star"></i>
@@ -146,6 +157,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                             @endif
+
+                                                 @livewire('rate.rate-livewire', ['elon' => $announcement])
                                         </div>
                                         <p class="in-stock text-brand">39 in Stock</p>
                                         <div class="product-extra-link2 d-flex">
