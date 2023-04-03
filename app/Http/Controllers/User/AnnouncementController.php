@@ -35,7 +35,11 @@ class AnnouncementController extends Controller
      * Display the specified resource.
      */
     public function show(Announcement $announcement)
-    {
+    {   
+
+        // $count = 2;
+        // $count++;
+        // dd($count);
 
         $announcement->view = $announcement->view + 1;
 

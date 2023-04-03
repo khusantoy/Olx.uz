@@ -38,11 +38,11 @@
                                     <ul class="nav flex-column" id="accordionExample">
                                         <li class="nav-item" id="dashboard-one">
                                             <a class="nav-link accordion-button" href="#" data-bs-toggle="collapse"
-                                               data-bs-target="#collapseOne" aria-expanded="false"
-                                               aria-controls="collapseOne"><i class="fi-rs-user mr-10"></i>Account
+                                                data-bs-target="#collapseOne" aria-expanded="false"
+                                                aria-controls="collapseOne"><i class="fi-rs-user mr-10"></i>Account
                                                 Information</a>
                                             <div id="collapseOne" class="accordion-collapse collapse"
-                                                 aria-labelledby="dashboard-one" data-bs-parent="#accordionExample">
+                                                aria-labelledby="dashboard-one" data-bs-parent="#accordionExample">
                                                 <ul class="dashboard-sub-link">
                                                     <li><a href="{{ route('front.account') }}">My Profile</a></li>
                                                     <li><a href="manage-address.html">Manage address</a></li>
@@ -55,11 +55,11 @@
                                         </li>
                                         <li class="nav-item" id="dashboard-two">
                                             <a class="nav-link active accordion-button collapsed" href="#"
-                                               data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                               aria-expanded="true" aria-controls="collapseTwo">
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
+                                                aria-controls="collapseTwo">
                                                 <i class="fi-rs-heart mr-10"></i>My Stuff</a>
                                             <div id="collapseTwo" class="accordion-collapse collapse show"
-                                                 aria-labelledby="dashboard-two" data-bs-parent="#accordionExample">
+                                                aria-labelledby="dashboard-two" data-bs-parent="#accordionExample">
                                                 <ul class="dashboard-sub-link">
                                                     <li><a href="wishlist.html" class="active">My Wishlist</a></li>
                                                     <li><a href="notifications.html">Notifications</a></li>
@@ -82,32 +82,38 @@
                                         </div>
                                     </div>
                                     <div class="row justify-content-center">
-                                        @foreach($announcements as $announcement)
-                                            @foreach(Auth::user()->followings()->get() as $f)
-                                                @if($f->followable_id==$announcement->id)
+                                        @foreach ($announcements as $announcement)
+                                            @foreach (Auth::user()->followings()->get() as $f)
+                                                @if ($f->followable_id == $announcement->id)
                                                     <div class="col-lg-4">
                                                         <div class="card mb-25">
                                                             <div class="card-body">
                                                                 <div class="wishlist-img">
-                                                                    @foreach ($announcement->images as $image)
-                                                                        <a href="view-product.html">
-                                                                            <img
-                                                                                src="{{asset("storage/$image->name") }}"
-                                                                                alt=""
-                                                                                class="img-fluid">
+                                                                        <a href="{{ route('ad-show', $announcement) }}">
+                                                                            @php
+                                                                                $name = '';
+                                                                                if (count($announcement->images)) {
+                                                                                    $name = $announcement->images[0]->name;
+                                                                                }
+                                                                            @endphp
+                                                                            <img src="{{ asset('storage/' . $name) }}"
+                                                                                alt="">
+                                                                            @php
+                                                                                $name = '';
+                                                                            @endphp
                                                                         </a>
-                                                                    @endforeach
                                                                     <a href="#" class="wishlist-delete-btn">
                                                                         <i class="feather-trash-2"></i>
                                                                     </a>
                                                                 </div>
                                                                 <div class="wishlist-content-wrap">
                                                                     <h2>
-                                                                        <a href="view-product.html">{{$announcement->title}}</a>
+                                                                        <a
+                                                                            href="view-product.html">{{ $announcement->title }}</a>
                                                                     </h2>
                                                                     <div class="wishlist-card-bottom mt-0">
                                                                         <div class="wishlist-price">
-                                                                            <span>${{$announcement->price}}</span>
+                                                                            <span>${{ $announcement->price }}</span>
                                                                             <span class="old-price">$ 450.00</span>
                                                                             <span class="discount-tag">-72%</span>
                                                                         </div>
@@ -131,4 +137,3 @@
     </main>
     <!-- /Main -->
 @endsection
-

@@ -107,7 +107,11 @@
         <div class="header-middle d-none d-lg-block">
             <div class="container">
                 <div class="header-col">
-                    <div class="header-right">
+                    <div class="header">
+                        <div class="header-logo">
+                            <a href="{{ route('front') }}" style="color=:blue; h2" >OLX</a>
+                        </div>
+                    </div><div class="header-right">
                         <div class="header-search">
                             @livewire('elonfilter')
                         </div>

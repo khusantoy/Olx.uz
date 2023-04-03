@@ -126,19 +126,17 @@
                                             </li>
 
                                             <li>Ko'rilganlar soni : <span
-                                                class="text-black">{{ $announcement->view }}</span>
-                                        </li>
+                                                    class="text-black">{{ $announcement->view }}</span>
+                                            </li>
                                         </ul>
                                         <div class="rating d-inline-block mb-3">
-
-                                             @if (!empty($announcement->ratings[0]))
+                                            @if (!empty($announcement->ratings[0]))
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star-half-alt"></i>
                                                 <i class="far fa-star"></i>
                                                 @livewire('rate.rate-livewire', ['elon' => $announcement])
-
                                             @else
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
@@ -146,6 +144,7 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                             @endif
+                                            {{-- {{ $announcement->sumRating }} --}}
                                         </div>
                                         <p class="in-stock text-brand">39 in Stock</p>
                                         <div class="product-extra-link2 d-flex">
@@ -420,5 +419,4 @@
             opacity: 0.4
         }
     </style>
-
 @endsection
