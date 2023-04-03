@@ -41,7 +41,7 @@ class AnnouncementController extends Controller
         // $count++;
         // dd($count);
 
-        $announcement->view = $announcement->view + 1;
+        $announcement->view = $announcement->view + 2;
 
         $categories = Category::all();
         $announcements = Announcement::with('category')->get();
