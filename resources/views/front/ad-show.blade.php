@@ -233,58 +233,86 @@
                                                 <div class="carousel-4-columns carousel-arrow-center"
                                                     id="carousel-4-columns">
                                                     {{-- here foreach for rendering ads --}}
-                                                    <div class="product-card wow animate__animated animate__fadeIn"
-                                                        data-wow-delay=".1s">
-                                                        <div class="product-img-col">
-                                                            <div class="product-img product-img-zoom">
-                                                                <a href="view-product.html">
-                                                                    <img class="default-img"
-                                                                        src="assets/img/shop/product-11.jpg"
-                                                                        alt="" />
-                                                                    <img class="hover-img"
-                                                                        src="assets/img/shop/product-11.jpg"
-                                                                        alt="" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="product-inner-details">
-                                                                <a aria-label="Quick view" class="product-btn"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#quickViewModal"><i
-                                                                        class="fi-rs-eye"></i></a>
-                                                                <a aria-label="Search" class="product-btn"
-                                                                    href="#"><i class="fi-rs-search"></i></a>
-                                                                <a aria-label="Add To Wishlist" class="product-btn"
-                                                                    href="wishlist.html"><i class="fi-rs-heart"></i></a>
-                                                                <a href="cart.html" aria-label="Cart"
-                                                                    class="product-btn"><i
-                                                                        class="fi-rs-shopping-cart"></i></a>
-                                                            </div>
-                                                            <div class="product-badge">
-                                                                <span class="best">Sale</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-content">
-                                                            <h2><a href="view-product.html">Cotton Tshirt for Women</a>
-                                                            </h2>
-                                                            <div class="product-card-bottom mt-0">
-                                                                <div class="product-price">
-                                                                    <span>$ 350.00</span>
-                                                                    <span class="old-price">$ 450.00</span>
-                                                                    <span class="discount-tag">-72%</span>
+                                                    @foreach ($announcements as $ad)
+                                                        @if ($ad->category_id == $announcement->category_id)
+                                                            <div class="product-card wow animate__animated animate__fadeIn"
+                                                                data-wow-delay=".1s">
+                                                                <div class="product-img-col">
+                                                                    <div class="product-img product-img-zoom">
+                                                                        <a href="view-product.html">
+                                                                            {{-- Default Image --}}
+
+                                                                            @php
+                                                                                $name = '';
+                                                                                if (count($announcement->images)) {
+                                                                                    $name = $announcement->images[0]->name;
+                                                                                }
+                                                                            @endphp
+                                                                            <img class="default-img"
+                                                                                src="{{ asset('storage/' . $name) }}"
+                                                                                alt="">
+                                                                            @php
+                                                                                $name = '';
+                                                                            @endphp
+                                                                            {{-- Hover Image --}}
+                                                                            @php
+                                                                                $name = '';
+                                                                                if (count($announcement->images)) {
+                                                                                    $name = $announcement->images[0]->name;
+                                                                                }
+                                                                            @endphp
+                                                                            <img class="hover-img"
+                                                                                src="{{ asset('storage/' . $name) }}"
+                                                                                alt="">
+                                                                            @php
+                                                                                $name = '';
+                                                                            @endphp
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="product-inner-details">
+                                                                        <a aria-label="Quick view" class="product-btn"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#quickViewModal"><i
+                                                                                class="fi-rs-eye"></i></a>
+                                                                        <a aria-label="Search" class="product-btn"
+                                                                            href="#"><i
+                                                                                class="fi-rs-search"></i></a>
+                                                                        <a aria-label="Add To Wishlist"
+                                                                            class="product-btn" href="wishlist.html"><i
+                                                                                class="fi-rs-heart"></i></a>
+                                                                        <a href="cart.html" aria-label="Cart"
+                                                                            class="product-btn"><i
+                                                                                class="fi-rs-shopping-cart"></i></a>
+                                                                    </div>
+                                                                    <div class="product-badge">
+                                                                        <span class="best">Sale</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="product-content">
+                                                                    <h2><a href="{{ route('ad-show',$ad) }}">{{ $ad->title }}</a>
+                                                                    </h2>
+                                                                    <div class="product-card-bottom mt-0">
+                                                                        <div class="product-price">
+                                                                            <span>$ {{ $ad->price }}</span>
+                                                                            <span class="old-price">$ 450.00</span>
+                                                                            <span class="discount-tag">-72%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-card-bottom">
+                                                                        <div class="rating d-inline-block">
+                                                                            <i class="fas fa-star"></i>
+                                                                            <i class="fas fa-star"></i>
+                                                                            <i class="fas fa-star"></i>
+                                                                            <i class="fas fa-star-half-alt"></i>
+                                                                            <i class="far fa-star"></i>
+                                                                            <span class="ml-5"> ()</span>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="product-card-bottom">
-                                                                <div class="rating d-inline-block">
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                    <i class="fas fa-star-half-alt"></i>
-                                                                    <i class="far fa-star"></i>
-                                                                    <span class="ml-5"> ()</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        @endif
+                                                    @endforeach
+
                                                 </div>
                                             </div>
                                         </div>

@@ -44,7 +44,8 @@ class AnnouncementController extends Controller
         $announcement->view = $announcement->view + 1;
 
         $categories = Category::all();
-        return view('front.ad-show' ,compact('announcement' , 'categories' ));
+        $announcements = Announcement::with('category')->get();
+        return view('front.ad-show' ,compact('announcement' , 'categories' , 'announcements' ));
     }
 
     /**
