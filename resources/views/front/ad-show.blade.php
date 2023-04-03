@@ -234,18 +234,18 @@
                                                     id="carousel-4-columns">
                                                     {{-- here foreach for rendering ads --}}
                                                     @foreach ($announcements as $ad)
-                                                        @if ($ad->category_id == $announcement->category_id)
+                                                        @if ($ad->category_id == $announcement->category_id && $ad->id != $announcement->id)
                                                             <div class="product-card wow animate__animated animate__fadeIn"
                                                                 data-wow-delay=".1s">
                                                                 <div class="product-img-col">
                                                                     <div class="product-img product-img-zoom">
-                                                                        <a href="view-product.html">
+                                                                        <a href="{{ route('ad-show', $ad) }}">
                                                                             {{-- Default Image --}}
 
                                                                             @php
                                                                                 $name = '';
-                                                                                if (count($announcement->images)) {
-                                                                                    $name = $announcement->images[0]->name;
+                                                                                if (count($ad->images)) {
+                                                                                    $name = $ad->images[0]->name;
                                                                                 }
                                                                             @endphp
                                                                             <img class="default-img"
@@ -257,8 +257,8 @@
                                                                             {{-- Hover Image --}}
                                                                             @php
                                                                                 $name = '';
-                                                                                if (count($announcement->images)) {
-                                                                                    $name = $announcement->images[0]->name;
+                                                                                if (count($ad->images)) {
+                                                                                    $name = $ad->images[0]->name;
                                                                                 }
                                                                             @endphp
                                                                             <img class="hover-img"
@@ -270,9 +270,9 @@
                                                                         </a>
                                                                     </div>
                                                                     <div class="product-inner-details">
-                                                                        <a aria-label="Quick view" class="product-btn"
+                                                                        <a href="{{ route('ad-show', $ad) }}" aria-label="Quick view" class="product-btn"
                                                                             data-bs-toggle="modal"
-                                                                            data-bs-target="#quickViewModal"><i
+                                                                            data-bs-target="#quickViewModal"><i href="{{ route('ad-show', $ad) }}"
                                                                                 class="fi-rs-eye"></i></a>
                                                                         <a aria-label="Search" class="product-btn"
                                                                             href="#"><i
@@ -289,7 +289,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="product-content">
-                                                                    <h2><a href="{{ route('ad-show',$ad) }}">{{ $ad->title }}</a>
+                                                                    <h2><a
+                                                                            href="{{ route('ad-show', $ad) }}">{{ $ad->title }}</a>
                                                                     </h2>
                                                                     <div class="product-card-bottom mt-0">
                                                                         <div class="product-price">
