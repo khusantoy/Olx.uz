@@ -28,7 +28,7 @@
                         </a>
                         <button aria-label="Add To  Wishlist" wire:click="like({{ $announcement->id }})"
                             class="product-btn  border border-none bg-white"><i
-                                {{-- @if (auth()->user()->isFollowing($announcement)) style="color: red" @endif --}}
+                                 @if (auth()->user()->isFollowing($announcement)) style="color: red" @endif
                                  class="fi-rs-heart "></i>
                         </button>
                         <a href="cart.html" aria-label="Cart" class="product-btn">
@@ -47,13 +47,18 @@
                         </div>
                     </div>
                     <div class="product-card-bottom">
-                        <div class="rating d-inline-block">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <i class="far fa-star"></i>
-                            <span class="ml-5"> (3.5)</span>
+                        <div class="rating d-inline-block mb-3">
+
+                            @if (!empty($announcement->ratings[0]))
+                                @livewire('rate.rate-star-livewire',['elon'=>$announcement])
+                                (@livewire('rate.rate-livewire',['elon'=>$announcement]))
+                            @else
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            @endif
                         </div>
                     </div>
                 </div>

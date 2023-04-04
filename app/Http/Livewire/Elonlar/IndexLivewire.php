@@ -29,8 +29,6 @@ class IndexLivewire extends Component
         $user = auth()->user();
         $user->toggleFollow($elon);
         $this->hasLiked= $user->isFollowing($elon);
-
-
     }
 
     public function category_click($category_id,$test=false){
