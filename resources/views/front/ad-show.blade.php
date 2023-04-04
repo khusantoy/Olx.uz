@@ -129,35 +129,9 @@
                                                 class="text-black">{{ $announcement->view }}</span>
                                         </li>
                                         </ul>
-                                        <div class="rating d-inline-block mb-3">
+                                        @livewire('rate.star-livewire', ['elon' => $announcement])
 
-                                             @if (!empty($announcement->ratings[0]))
-                                                 @for($i = 1; $i <= 5; $i++)
-
-                                                    <i class="@if($announcement->averageRating==$i || $announcement->averageRating>$i )  fas @else far @endif
-                                                      @if( $announcement->averageRating==($i-0.5) )
-                                                        fa-star-half-alt @else
-                                                        fa-star
-                                                        @endif"></i>
-
-
-                                                 @endfor
-{{--                                                <i class="fas fa-star"></i>--}}
-{{--                                                <i class="fas fa-star"></i>--}}
-{{--                                                <i class="fas fa-star"></i>--}}
-{{--                                                <i class=" fa-star-half-alt"></i>--}}
-{{--                                                <i class="far fa-star"></i>--}}
-
-
-
-                                            @else
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            @endif
-                                        </div>
+                                        @livewire('rate.rate-livewire', ['elon' => $announcement])
                                         <p class="in-stock text-brand">39 in Stock</p>
                                         <div class="product-extra-link2 d-flex">
                                             @livewire('like', ['elon' => $announcement])
