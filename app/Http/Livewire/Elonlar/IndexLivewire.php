@@ -11,10 +11,12 @@ class IndexLivewire extends Component
     public $count=16;
     public $elon=false;
     public $elonlar;
+    public $filter=false;
+    public $subcategory=false;
     public $hasLiked=false;
 
     protected $listeners=[
-        'category_click','qaytadanrender'
+        'category_click','qaytadanrender','supcategory_click'
     ];
     public function qaytadanrender(){
 
@@ -33,23 +35,22 @@ class IndexLivewire extends Component
 
     }
 
+    public function supcategory_click($subcategory)
+    {
+        $this->subcategory=$subcategory;
+     }
     public function category_click($category_id,$test=false){
-        if( $test=='test'){
-            $this->count+=16;
-            $this->elonlar=Announcement::where('category_id',$category_id)
-            ->take($this->count)
-            ->orderByDesc('id')
-            ->get();
-        }else{
-            $this->elonlar=Announcement::where('category_id',$category_id)
-           ->where('title','like',"%".$test."%")
-            ->take($this->count)
-            ->orderByDesc('id')
-            ->get();
-        }
+        $this->filter=$test;
 
-
-
+//        if( $test=='test'){
+//            $this->count+=16;
+//            $this->elonlar=Announcement::where('category_id',$category_id)
+//            ->take($this->count)
+//            ->orderByDesc('id')
+//            ->get();
+//        }else{
+//
+//        }
 
         $this->dispatchBrowserEvent('category_bosildi');
     }
@@ -62,7 +63,20 @@ class IndexLivewire extends Component
     }
     public function render()
     {
+        if($this->filter){
+            $this->elonlar=Announcement::where('title','like',"%".$this->filter."%")
+                ->take($this->count)
+                ->orderByDesc('id')
+                ->get();
+        }else{
+            if ($this->subcategory){
+                $this->elonlar=Announcement::where('category_id',$this->subcategory)->orderByDesc('id')->get();
+
+            }else{
+
         $this->elonlar=Announcement::take($this->count)->orderByDesc('id')->get();
+            }
+        }
 
 
         return view('livewire.elonlar.index-livewire');

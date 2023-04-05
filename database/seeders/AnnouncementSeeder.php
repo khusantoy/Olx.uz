@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 use App\Models\Announcement;
 use App\Models\Category;
+use App\Models\SupCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,8 +16,8 @@ class AnnouncementSeeder extends Seeder
     {
         $elonlar_data = [];
         $count=1;
-        foreach (Category::all() as  $category) {
-            for ($j = 0; $j < 5; $j++) {
+        foreach (SupCategory::all() as  $category) {
+            for ($j = 0; $j < 2; $j++) {
                 $elonlar_data[] = [
                     'title'=>"elon title sub_id".$count,
                     'description'=>"elon description sub_id".$count,
@@ -24,7 +25,7 @@ class AnnouncementSeeder extends Seeder
                     'view'=>0,
                     'price'=>1000,
                     'user_id'=>1,
-                    'category_id'=>$category->id,
+                    'category_id'=>$category->id
                 ];
                 $count++;
             }

@@ -447,6 +447,11 @@
             document.getElementById('qaytadanrender2').click();
 
         })
+        document.addEventListener('supcategory_click', () => {
+
+            document.getElementById('supcategory_click').click();
+
+        })
     </script>
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 

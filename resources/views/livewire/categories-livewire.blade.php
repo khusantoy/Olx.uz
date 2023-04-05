@@ -18,7 +18,7 @@
                                     <ul class="dropdown">
                                             <li>
                                                 <i class="fa-solid fa-arrow-right fa-fade" style="color: #175dcf;"></i>
-                                                <a style="display: inline-block; margin-left:10px;" href="product-category-list.html">{{ $supCategory->title }}</a>
+                                                <button style=" border: none;display: inline-block; margin-left:10px;" wire:click="category({{$supCategory->id}})">{{ $supCategory->title }}</button>
                                             </li>
                                     </ul>
                                 </li>

@@ -9,6 +9,10 @@ class CategoriesLivewire extends Component
 
     public $categories;
 
+    public function category($supcategory)
+    {
+        $this->emit('supcategory_click',$supcategory);
+    }
 
     public function mount($categories){
         $this->categories=$categories;
