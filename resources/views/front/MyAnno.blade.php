@@ -103,6 +103,9 @@
                                             </a>
 
                                             <a href="#" class="wishlist-delete-btn">
+                                                <i class="feather-edit"></i>
+                                            </a>
+                                        <a href="#" class="wishlist-delete-btn">
                                                 <i class="feather-trash-2"></i>
                                             </a>
                                         </div>
@@ -126,6 +129,7 @@
                                                     <a aria-label="Quick view" class="product-btn"
                                                        href="{{ route('ad-show', $announcement) }}">
                                                         <i class="fi-rs-eye"></i>
+                                                    </a>
                                                     </a>
                                                     @livewire('myanno-livewire', ['elon'=>$announcement])
                                                     <a aria-label="Compare" class="product-btn" href="#"><i

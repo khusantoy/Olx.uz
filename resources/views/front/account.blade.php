@@ -46,7 +46,7 @@
                                                 <ul class="dashboard-sub-link">
                                                      <li><a href="{{ route('front.account') }}" class="active">My Profile</a>
                                                     </li>
-                                                    <li><a href="manage-address.html">Manage address</a></li>
+                                                    <li><a href="{{ route('front.MyAnno') }}">My Ads</a></li>
                                                 </ul>
                                             </div>
                                         </li>
@@ -61,7 +61,7 @@
                                             <div id="collapseTwo" class="accordion-collapse collapse"
                                                 aria-labelledby="dashboard-two" data-bs-parent="#accordionExample">
                                                 <ul class="dashboard-sub-link">
-                                                    <li><a href="wishlist.html">My Wishlist</a></li>
+
                                                     <li><a href="notifications.html">Notifications</a></li>
                                                 </ul>
                                             </div>

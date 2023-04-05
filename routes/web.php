@@ -43,6 +43,7 @@ Route::get('/', function () {
 })->name('front');
 
 Route::get('/MyAnno' , [UserAnnouncementController::class, 'index'] )->name('front.MyAnno')->middleware('auth');
+Route::get('/edit{announcement}' , [UserAnnouncementController::class, 'edit'] )->name('front.edit')->middleware('auth');
 
 Route::get('/wishlist', function () {
     $announcements = Announcement::all();

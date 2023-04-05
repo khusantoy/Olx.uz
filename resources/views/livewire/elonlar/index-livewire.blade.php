@@ -13,7 +13,7 @@
                                     $name = $announcement->images[0]->name;
                                 }
                             @endphp
-                            <img src="{{ asset('storage/' . $name) }}" alt="">
+                            <img style="width: 300px ; height: 300px" src="{{ asset('storage/' . $name) }}" alt="">
                             @php
                                 $name = '';
                             @endphp
@@ -26,11 +26,17 @@
                         <a aria-label="Search" class="product-btn" href="#">
                             <i class="fi-rs-search"></i>
                         </a>
-                        <button aria-label="Add To  Wishlist" wire:click="like({{ $announcement->id }})"
-                            class="product-btn  border border-none bg-white"><i
-                                 @if (auth()->user()->isFollowing($announcement)) style="color: red" @endif
-                                 class="fi-rs-heart "></i>
-                        </button>
+                        @if(auth()->user())
+                            <button aria-label="Add To  Wishlist" wire:click="like({{ $announcement->id }})"
+                                    class="product-btn  border border-none bg-white"><i
+                                    @if (auth()->user()->isFollowing($announcement)) style="color: red" @endif
+                                class="fi-rs-heart "></i>
+                            </button>
+                        @else
+                            <a href="{{route('login')}}" aria-label="Add To  Wishlist"
+                                    class="product-btn  border border-none bg-white"><i class="fi-rs-heart "></i>
+                            </a>
+                        @endif
                         <a href="cart.html" aria-label="Cart" class="product-btn">
                             <i class="fi-rs-shopping-cart"></i>
                         </a>
@@ -48,7 +54,6 @@
                     </div>
                     <div class="product-card-bottom">
                         <div class="rating d-inline-block mb-3">
-
                             @if (!empty($announcement->ratings[0]))
                                 @livewire('rate.rate-star-livewire',['elon'=>$announcement])
                                 (@livewire('rate.rate-livewire',['elon'=>$announcement]))
@@ -60,7 +65,7 @@
 
             <!-- Quick view -->
             <div class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModal"
-                aria-hidden="true">
+                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <button type="button" class="btn-close quick-close" data-bs-dismiss="modal" aria-label="Close">
@@ -143,9 +148,10 @@
                                         </div>
                                         <div class="product-extra-link2">
                                             <button type="submit" class="button button-add-to-cart me-3"><i
-                                                    class="fi-rs-shopping-cart"></i> ADD TO CART</button>
+                                                    class="fi-rs-shopping-cart"></i> ADD TO CART
+                                            </button>
                                             <a aria-label="Add To Wishlist" class="button btn-wishlist"
-                                                href="wishlist.html"><i class="fi-rs-heart me-1 ms-1"></i></a>
+                                               href="wishlist.html"><i class="fi-rs-heart me-1 ms-1"></i></a>
                                         </div>
                                         <div class="pro-share">
                                             <ul>
@@ -164,11 +170,11 @@
                                             <ul class="nav nav-tabs text-uppercase modal-nav">
                                                 <li class="nav-item">
                                                     <a class="nav-link active" id="Description-tab"
-                                                        data-bs-toggle="tab" href="#Description">Description</a>
+                                                       data-bs-toggle="tab" href="#Description">Description</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab"
-                                                        href="#Specification">Specification</a>
+                                                       href="#Specification">Specification</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content shop_info_tab entry-main-content">

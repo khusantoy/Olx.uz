@@ -67,6 +67,8 @@ class AnnouncementController extends Controller
      */
     public function edit(string $id)
     {
+        $announcements = Announcement::find($id);
+        return view('front.edit-anno', compact( 'announcements'));
     }
 
     /**
