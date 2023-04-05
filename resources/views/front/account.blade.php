@@ -44,14 +44,15 @@
                                             <div id="collapseOne" class="accordion-collapse collapse show"
                                                 aria-labelledby="dashboard-one" data-bs-parent="#accordionExample">
                                                 <ul class="dashboard-sub-link">
-                                                     <li><a href="{{ route('front.account') }}" class="active">My Profile</a>
-                                                    </li>
+                                                    <li><a href="{{ route('front.account') }}" class="active">My Profile</a></li>
                                                     <li><a href="{{ route('front.MyAnno') }}">My Ads</a></li>
+                                                    <li><a href="{{ route('front.history') }}">History</a></li>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('front.wishlist') }}"><i class="fi-rs-heart mr-10"></i>Like</a>
+                                            <a class="nav-link" href="{{ route('front.wishlist') }}"><i
+                                                    class="fi-rs-heart mr-10"></i>Like</a>
                                         </li>
                                         <li class="nav-item" id="dashboard-two">
                                             <a class="nav-link accordion-button" href="#" data-bs-toggle="collapse"
@@ -83,7 +84,8 @@
 
 
                                                 <a type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#change-user-settings"  onclick="user()">Edit</a> <span>|</span>
+                                                    data-target="#change-user-settings" onclick="user()">Edit</a>
+                                                <span>|</span>
                                                 <a aria-label="passwordmodal" class="edit-modal-btn" data-bs-toggle="modal"
                                                     data-bs-target="#passwordmodal">Change Password</a>
                                             </div>
@@ -112,8 +114,8 @@
     </main>
 
     <script>
-        function user(){
-           Livewire.emit('user_editing',{{ auth()->user()->id }})
+        function user() {
+            Livewire.emit('user_editing', {{ auth()->user()->id }})
         }
     </script>
 @endsection

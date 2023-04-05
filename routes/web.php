@@ -3,12 +3,14 @@
 use App\Http\Controllers\AddRatingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SupCategoryController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\User\AnnouncementController as UserAnnouncementController;
 
 use App\Models\Announcement;
 
 
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -31,8 +33,6 @@ Route::get('/rating', function () {
     $elon = Announcement::find(1);
 
     dd($elon->averageRating);
-
-
 });
 Route::get('/', function () {
 
@@ -42,8 +42,8 @@ Route::get('/', function () {
     return view('front.index', compact('categories'));
 })->name('front');
 
-Route::get('/MyAnno' , [UserAnnouncementController::class, 'index'] )->name('front.MyAnno')->middleware('auth');
-Route::get('/edit{announcement}' , [UserAnnouncementController::class, 'edit'] )->name('front.edit')->middleware('auth');
+Route::get('/MyAnno', [UserAnnouncementController::class, 'index'])->name('front.MyAnno')->middleware('auth');
+Route::get('/edit{announcement}', [UserAnnouncementController::class, 'edit'])->name('front.edit')->middleware('auth');
 
 Route::get('/wishlist', function () {
     $announcements = Announcement::all();
@@ -109,7 +109,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('supcategories', SupCategoryController::class);
 
     Route::get('/rate/{announcement}', [AddRatingController::class, 'index'])->name('addRate');
-
-
 });
 
+Route::get('/history', function () {
+    $announcements = auth()->user()->ads()->paginate(20);
+    $categories = Category::all();
+    return view('front.history', compact('announcements', 'categories'));
+})->name('front.history');
+
+Route::get('/history/{announcement}/destroy', function ($announcement) {
+    auth()->user()->ads()->detach($announcement);
+    return redirect()->back();
+})->name('front.history.destroy');
