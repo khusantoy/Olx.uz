@@ -11,5 +11,4 @@
             Like
         </a>
     @endif
-
 </div>

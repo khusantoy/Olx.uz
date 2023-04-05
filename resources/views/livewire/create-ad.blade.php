@@ -47,7 +47,7 @@
                     <input type="number" wire:model="price" name="price" class="form-control" id="password">
                 </div>
                 <div class="col-md-6">
-                    <label for="image" class="form-label">category</label>
+                    <label for="image" class="form-label">subcategory</label>
                     <select name="category_id" wire:model="category_id" class="form-control">
                         <option value=""></option>
                     @foreach ($categories as $key => $category)

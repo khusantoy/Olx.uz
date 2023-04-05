@@ -21,7 +21,7 @@ class CreateAd extends Component
 
     public function render()
     {
-        $categories = Category::pluck('title', 'id');
+        $categories = SupCategory::pluck('title', 'id');
         return view('livewire.create-ad', compact('categories'));
     }
 

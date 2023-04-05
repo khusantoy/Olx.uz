@@ -14,7 +14,6 @@ class Like extends Component
         $this->elon=$elon;
         if(auth()->check()){
             $user = auth()->user();
-
             $this->hasLiked= $user->isFollowing($this->elon);
         }
     }

@@ -27,9 +27,9 @@
                             <i class="fi-rs-search"></i>
                         </a>
                         <button aria-label="Add To  Wishlist" wire:click="like({{ $announcement->id }})"
-                            class="product-btn  border border-none bg-white"><i
-                                {{-- @if (auth()->user()->isFollowing($announcement)) style="color: red" @endif --}}
-                                 class="fi-rs-heart "></i>
+                                class="product-btn  border border-none bg-white"><i
+                                @if (auth()->user()->isFollowing($announcement)) style="color: red" @endif
+                            class="fi-rs-heart "></i>
                         </button>
                         <a href="cart.html" aria-label="Cart" class="product-btn">
                             <i class="fi-rs-shopping-cart"></i>
@@ -48,12 +48,16 @@
                     </div>
                     <div class="product-card-bottom">
                         <div class="rating d-inline-block">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <i class="far fa-star"></i>
-                            <span class="ml-5"> (3.5)</span>
+                            @for($i = 1; $i <= 5; $i++)
+                                <i class="@if($announcement->averageRating==$i ||
+ $announcement->averageRating>$i )  fas @else far @endif
+ @if( $announcement->averageRating==($i-0.5) )
+ fa-star-half-alt @else
+ fa-star
+ @endif"></i>
+                            @endfor
+                            <span class="ml-5 text-dark"> {{ $announcement->averageRating }}</span>
+
                         </div>
                     </div>
                 </div>
@@ -61,7 +65,7 @@
 
             <!-- Quick view -->
             <div class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModal"
-                aria-hidden="true">
+                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <button type="button" class="btn-close quick-close" data-bs-dismiss="modal" aria-label="Close">
@@ -144,9 +148,10 @@
                                         </div>
                                         <div class="product-extra-link2">
                                             <button type="submit" class="button button-add-to-cart me-3"><i
-                                                    class="fi-rs-shopping-cart"></i> ADD TO CART</button>
+                                                    class="fi-rs-shopping-cart"></i> ADD TO CART
+                                            </button>
                                             <a aria-label="Add To Wishlist" class="button btn-wishlist"
-                                                href="wishlist.html"><i class="fi-rs-heart me-1 ms-1"></i></a>
+                                               href="wishlist.html"><i class="fi-rs-heart me-1 ms-1"></i></a>
                                         </div>
                                         <div class="pro-share">
                                             <ul>
@@ -165,11 +170,11 @@
                                             <ul class="nav nav-tabs text-uppercase modal-nav">
                                                 <li class="nav-item">
                                                     <a class="nav-link active" id="Description-tab"
-                                                        data-bs-toggle="tab" href="#Description">Description</a>
+                                                       data-bs-toggle="tab" href="#Description">Description</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab"
-                                                        href="#Specification">Specification</a>
+                                                       href="#Specification">Specification</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content shop_info_tab entry-main-content">

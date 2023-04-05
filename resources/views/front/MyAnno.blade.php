@@ -102,9 +102,6 @@
                                                 @endphp
                                             </a>
 
-                                            <a href="#" class="wishlist-delete-btn">
-                                                <i class="feather-edit"></i>
-                                            </a>
                                         <a href="#" class="wishlist-delete-btn">
                                                 <i class="feather-trash-2"></i>
                                             </a>

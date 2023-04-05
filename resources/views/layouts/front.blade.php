@@ -14,9 +14,9 @@
     @livewireStyles
 
     <style>
-        .opa{
-            opacity: .1;
-        }
+        /*.opa{*/
+        /*    opacity: .1;*/
+        /*}*/
     </style>
 </head>
 
