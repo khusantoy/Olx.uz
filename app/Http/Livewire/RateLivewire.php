@@ -11,7 +11,6 @@ class RateLivewire extends Component
     public function mount($elon)
     {
         $this->elon = $elon;
-
     }
 
     public function test($rating)

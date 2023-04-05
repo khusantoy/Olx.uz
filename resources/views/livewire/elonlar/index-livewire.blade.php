@@ -52,12 +52,6 @@
                             @if (!empty($announcement->ratings[0]))
                                 @livewire('rate.rate-star-livewire',['elon'=>$announcement])
                                 (@livewire('rate.rate-livewire',['elon'=>$announcement]))
-                            @else
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
                             @endif
                         </div>
                     </div>

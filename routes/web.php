@@ -42,27 +42,21 @@ Route::get('/', function () {
     return view('front.index', compact('categories'));
 })->name('front');
 
-Route::get('/MyAnno', function () {
-    $announcements = Announcement::with('user')->get();
-    $categories = Category::with(['supCategories' => function ($query) {
-        return $query->whereNot('title', "like", "%10%");
-    }])->get();
-    return view('front.MyAnno', compact('categories','announcements'));
-})->name('front.MyAnno')->middleware('auth');
+Route::get('/MyAnno' , [UserAnnouncementController::class, 'index'] )->name('front.MyAnno')->middleware('auth');
 
 Route::get('/wishlist', function () {
     $announcements = Announcement::all();
     $categories = Category::with(['supCategories' => function ($query) {
         return $query->whereNot('title', "like", "%10%");
     }])->get();
-    return view('front.wishlist', compact('categories','announcements'));
+    return view('front.wishlist', compact('categories', 'announcements'));
 })->name('front.wishlist')->middleware('auth');
 
 Route::get('/cart', function () {
     $categories = Category::with(['supCategories' => function ($query) {
         return $query->whereNot('title', "like", "%10%");
     }])->get();
-    return view('front.cart',compact('categories'));
+    return view('front.cart', compact('categories'));
 })->name('front.cart')->middleware('auth');
 
 @include('auth.php');
@@ -101,8 +95,8 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('admin');
     Route::get('/profile', function () {
 
-        $users=\App\Models\User::find(auth()->user()->id);
-        return view('admin.profile',compact('users'));
+        $users = \App\Models\User::find(auth()->user()->id);
+        return view('admin.profile', compact('users'));
     })->name('profile');
 
     Route::resource('/users', \App\Http\Controllers\UsersController::class);

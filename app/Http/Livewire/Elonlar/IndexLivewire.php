@@ -46,9 +46,6 @@ class IndexLivewire extends Component
             ->get();
         }
 
-
-
-
         $this->dispatchBrowserEvent('category_bosildi');
     }
 
@@ -61,8 +58,6 @@ class IndexLivewire extends Component
     public function render()
     {
         $this->elonlar=Announcement::take($this->count)->orderByDesc('id')->get();
-
-
         return view('livewire.elonlar.index-livewire');
     }
 
