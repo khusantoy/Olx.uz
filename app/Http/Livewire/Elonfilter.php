@@ -12,6 +12,7 @@ class Elonfilter extends Component
 
     public function updated(){
        $this->emit('category_click',1,$this->filter);
+
     }
 
     public function render()

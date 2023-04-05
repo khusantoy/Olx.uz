@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Announcement;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Cache;
+
 
 class AnnouncementController extends Controller
 {
@@ -15,6 +17,14 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
+
+        Paginator::useBootstrap();
+        $announcements = Announcement::orderByDesc('id')->paginate(10);
+
+        $categories = Category::with(['supCategories' => function ($query) {
+            return $query->whereNot('title', "like", "%10%");
+        }])->get();
+        return view('front.MyAnno', compact('categories', 'announcements'));
     }
 
     /**
@@ -36,7 +46,6 @@ class AnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
-
         // $count = 2;
         // $count++;
         // dd($count);
@@ -48,7 +57,6 @@ class AnnouncementController extends Controller
                 'view' =>  $announcement->view,
             ]);
         }
-
         $categories = Category::all();
         $announcements = Announcement::with('category')->get();
         return view('front.ad-show', compact('announcement', 'categories', 'announcements'));
@@ -59,6 +67,8 @@ class AnnouncementController extends Controller
      */
     public function edit(string $id)
     {
+        $announcements = Announcement::find($id);
+        return view('front.edit-anno', compact( 'announcements'));
     }
 
     /**

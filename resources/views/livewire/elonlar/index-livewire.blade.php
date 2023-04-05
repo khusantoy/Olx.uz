@@ -13,7 +13,7 @@
                                     $name = $announcement->images[0]->name;
                                 }
                             @endphp
-                            <img src="{{ asset('storage/' . $name) }}" alt="">
+                            <img style="width: 300px ; height: 300px" src="{{ asset('storage/' . $name) }}" alt="">
                             @php
                                 $name = '';
                             @endphp
@@ -28,7 +28,7 @@
                         </a>
                         <button aria-label="Add To  Wishlist" wire:click="like({{ $announcement->id }})"
                             class="product-btn  border border-none bg-white"><i
-                                 @if (auth()->user()->isFollowing($announcement)) style="color: red" @endif
+                                {{-- @if (auth()->user()->isFollowing($announcement)) style="color: red" @endif --}}
                                  class="fi-rs-heart "></i>
                         </button>
                         <a href="cart.html" aria-label="Cart" class="product-btn">
