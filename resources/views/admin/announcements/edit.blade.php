@@ -48,7 +48,7 @@
                                 <label for="image" class="form-label">Price</label>
                                 <input type="number" name="price" class="form-control" value="{{$elon->price}}" id="password">
                             </div>
-                            <div class="mb-2 w-50">
+                            <div class="mb-2 w-50">         
                                 <label for="image"  class="form-label">category</label>
                                 <select name="category_id" class="form-control">
                                     <option value="">
