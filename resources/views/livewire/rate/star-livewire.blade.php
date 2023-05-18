@@ -9,7 +9,7 @@
              @else
              far
             @endif
-                 @if( $elon->averageRating==($i-0.5) || $elon->averageRating >($i-0.5) && $elon->averageRating < $i )
+                 @if( $elon->averageRating==($i-0.5) || $elon->averageRating >($i-1) && $elon->averageRating < $i )
                      fa-star-half-alt
                       @else
                         fa-star

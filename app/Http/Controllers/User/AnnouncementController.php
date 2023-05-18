@@ -51,7 +51,7 @@ class AnnouncementController extends Controller
         // dd($count);
         cache(['ad' => 'showed']);
 
-        auth()->user()->ads()->attach($announcement->id);
+//        auth()->user()->ads()->attach($announcement->id);
 
         if (cache('ad') !== 'showed') {
             $announcement->view = $announcement->view + 1;
